@@ -1,0 +1,115 @@
+@import "../../style/fn";
+
+// package: Switch
+// =============================================================================
+
+
+$switch-check = #fff;
+$switch-checked = #4dd865;
+$switch-border = #d9d9d9;
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  vertical-align: middle;
+
+  .switch-label {
+    margin-left: 10px;
+    display: inline-block;
+
+    &:empty {
+      margin-left: 0;
+    }
+  }
+
+  .switch-core {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    position: relative;
+    // size: 52px 32px;
+    min-width: 52px;
+    height: 32px;
+    line-height: 30px;
+    border: 1px solid $switch-border;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background: $switch-border;
+    // background: $switch-checked;
+
+    .switch-text{
+      flex-grow: 1;
+      position: relative;
+      display: block;
+      min-width: 16px;
+      padding: 0 6px 0 4px;
+      font-size: 12px;
+      text-align: center;
+      user-select: none;
+    }
+
+    &::after, &::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: left 0.3s, transform 0.3s;
+      // transition-property: left, transform;
+      // transition-duration: 0.3s, 0.3s;
+      border-radius: 15px;
+    }
+
+    .switch-blank{
+      // 占位符
+      opacity: 0;
+    }
+
+    .switch-blank,
+    &::after {
+      // position: relative;
+      flex-shrink: 0;
+      // size: 30px;
+      width: 30px;
+      height: 30px;
+      background-color: $switch-check;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    }
+
+    &::before {
+      // z-index: 1;
+      // size: 50px 30px;
+      width: 100%;
+      height: 30px;
+      background-color: #fdfdfd;
+    }
+  }
+
+  .switch-input {
+    display: none;
+
+    &:checked + .switch-core {
+      border-color: $switch-checked;
+      background-color: $switch-checked;
+      flex-direction: row;
+
+      .switch-text{
+        padding: 0 4px 0 6px;
+        color: #fff;
+      }
+
+      &::before {
+        transform: scale(0);
+      }
+
+      &::after {
+        // 完成自适应宽度的开关动画支持
+        left: 100%;
+        transform: translateX(-100%);
+      }
+
+    }
+  }
+
+}

@@ -1,0 +1,19 @@
+// 定义一些 css 实现的 icon 等，不依赖 iconfont 或 svg
+
+.icon-custom
+
+  &.icon-after::after,
+  &.icon-before::before
+    content ''
+    display inline-block
+    width 12px
+    height 12px
+    color inherit
+
+  &.icon-arrow::after
+    width 9px
+    height 9px
+    border-width 1px 1px 0 0
+    border-color currentColor
+    border-style solid
+    transform matrix(0.71, 0.71, -0.71, 0.71, 0, 0)

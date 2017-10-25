@@ -1,0 +1,79 @@
+@import "../../style/fn";
+// 实现力求精简，精简到只保留 core 部分同样 OK
+
+// Package: Badge
+// =============================================================================
+// badge 一般为多彩色，所以默认字体用亮色
+// 组件支持自定义颜色
+
+// Custom
+// -----------------------------------------------------------------------------
+// 推荐配置
+
+$badge-font-size = 12px;  //75%; ???
+$badge-padding = 0.25em 0.5em;//($spacer-y * 0.25) ($spacer-x * 0.4); //.25 .625 em ???
+$badge-radius = 0;
+$badge-bg = red;
+$badge-color = isLight($badge-bg);
+
+
+// mixin
+// -----------------------------------------------------------------------------
+
+badgeSize($font-size = $badge-font-size, $padding = $badge-padding) {
+  font-size: $font-size;
+  padding: $padding;
+}
+
+badgeColor($bg = $badge-bg, $color = $badge-color, $radius = $badge-radius) {
+  background: $bg;
+
+  if ($color == auto) {
+    color: isLight($bg);
+  } else {
+    color: $color;
+  }
+}
+
+// Core
+// -----------------------------------------------------------------------------
+// 核心实现，每个属性的设置都要明白为什么
+
+.{$ns}badge {
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+  cursor: default;
+  // min-width: 1.5rem; // 注释此行，就可以支持点样式，且默认会是圆
+  text-align: center;
+
+  badgeSize();
+  badgeColor();
+}
+
+// 扩展样式（主题、形状、尺寸等）
+// -----------------------------------------------------------------------------
+for $color-key, $color in $theme-colors {
+  .{$ns}badge-{$color-key} {
+    badgeColor($color, auto);
+  }
+}
+
+// shape，使用全局的
+// for $shape-key, $shape-value in $shapes {
+//   .{$ns}badge.is-{$shape-key} {
+//     border-radius: $shape-value;
+//   }
+// }
+
+// 特殊处理
+.{$ns}badge:empty,
+.{$ns}badge.is-dot {
+  padding: 4px;
+  min-width: initial;
+  border-radius: $global-round;
+  font-size: 0;
+  width: 0;
+  height: 0;
+}
+

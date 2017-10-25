@@ -1,0 +1,216 @@
+@import "../../style/fn";
+
+// package: Cell
+// =============================================================================
+
+
+.cell {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+  min-height: 44px;
+  color: inherit;
+  text-decoration: none;
+  background-color: #fff;
+
+  &:focus{
+    outline: none;
+  }
+
+  &,
+  &:first-child .cell-wrapper {
+    background-origin: border-box;
+  }
+
+  &:last-child {
+    background-image: linear-gradient(0deg, #d9d9d9, #d9d9d9 50%, transparent 0);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  .cell-wrapper {
+    background-image: linear-gradient(180deg, #d9d9d9, #d9d9d9 50%, transparent 50%);
+    background-size: 120% 1px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-origin: content-box;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 14px;
+    min-height: inherit;
+    overflow: hidden;
+    padding: 0 16px;
+    width: 100%;
+  }
+  .cell-mask {
+
+  }
+  .cell-mask::after {
+    position: absolute;
+    background-color: #000;
+    content: " ";
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .cell-mask:active::after {
+    opacity: 0.1;
+  }
+
+  .cell-left {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  .cell-right {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+
+  .cell-arrow-right {
+    color: $gray-silver;
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      color inherit
+      border-width: 1px 1px 0 0;
+      border-color: currentColor;
+      border-style: solid;
+      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    }
+  }
+  // .cell {
+  //   .icon-arrow-right{
+  //     @extend ._font-icon;
+  //
+  //     content: '\e611';
+  //     margin-left: 8px;
+  //     margin-right: -8px;
+  //     font-size: 16px;
+  //     color: $gray-silver;
+  //   }
+  // }
+
+  .cell-wrapper,
+  .cell-title-row,
+  .cell-space-between,
+  .cell-space-around{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cell-space-around{
+    justify-content: space-around;
+  }
+
+  .cell-column{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .cell-input input,
+  .cell-input textarea,
+  .cell-content,
+  .cell-title-row{
+    flex: 1;
+  }
+
+  .cell-content{
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    overflow: hidden;
+  }
+
+  .cell-media{
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    align-items: center;
+    // margin-right: ($spacer / 2);
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    // + .cell-content{
+    //   margin-left: ($spacer / 2);
+    // }
+
+    // // cell-media 不为空，会产生一个间距
+    > *:first-child {
+      margin-right: ($spacer / 2);
+    }
+
+    .badge{
+      position: absolute;
+      top: 0;
+      right: ($spacer / 2);
+      // right: ($spacer / 2);
+      // right: 10px;
+      // 定位 采用右对齐(向上偏移 40%)
+      // transform: translate(8), -40%px;
+      // 使用百分数时，在控制点样式显示隐藏时，会影响其他 badge 样式的高度瞬间被剪切的微小抖动
+      transform: translate(8px, -8px);
+      margin: 0;
+    }
+
+    .badge.is-dot{
+      // 定位 采用右对齐(向右偏移100%——自身宽度)
+      // transform: translate(40%, -40%);
+      transform: translate(3px, -3px);
+    }
+
+    &:empty{
+      display: none;
+    }
+  }
+
+  .cell-title,
+  .cell-value{
+    flex-shrink: 1;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .cell-title{
+    font-size: 16px;
+  }
+  .cell-value{
+    font-size: 14px;
+  }
+  .cell-desc{
+    font-size: 12px;
+  }
+  .cell-after{
+    margin-left: ($spacer / 2);
+    font-size: 14px;
+    color: $gray-base;
+    white-space: nowrap;
+
+    // FIXME: 处理不居中对齐
+    display: flex;
+    align-items: center;
+  }
+
+}

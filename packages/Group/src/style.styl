@@ -1,0 +1,58 @@
+@import "../../style/fn";
+
+// package: Group
+// =============================================================================
+
+
+.group {
+  margin: $spacer 0;
+
+  .group,
+  .list {
+    margin: 0;
+  }
+}
+
+.group-header{
+  // min-height: 44px;
+  // line-height: 44px;
+  // padding: 0 $spacer;
+  font-weight: bold;
+}
+
+.group-body {
+  display: block;
+  background: $white;
+
+  &.is-padded{
+    padding-left: $spacer;
+    padding-right: $spacer;
+  }
+}
+
+.group-header,
+.group-footer {
+  font-size: 14px;
+  padding: ($spacer / 2) $spacer;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.group-index {
+  .group {
+    // margin-right: $spacer;
+
+  }
+  .group-body {
+  }
+  .group-header {
+    padding: ($spacer / 4) $spacer;
+    background-color: $gray-light9;
+  }
+  .group-footer {
+    // background-color: $gray-light9;
+
+  }
+}

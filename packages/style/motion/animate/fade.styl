@@ -1,0 +1,27 @@
+
+// Fade
+// =============================================================================
+
+fadeMake($className, $keyframeName) {
+  makeAnimate($className, $keyframeName);
+  .{$className}-enter {
+    animation-timing-function: linear;
+  }
+  .{$className}-leave {
+    animation-timing-function: linear;
+  }
+}
+
+fadeMake('fade', null);
+
+
+// keyframes
+// -----------------------------------------------------------------------------
+
+@keyframes fade-in s {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-out {
+  to { opacity: 0; }
+}

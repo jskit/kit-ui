@@ -1,0 +1,28 @@
+@import "../../style/fn";
+
+// package: Divider
+// =============================================================================
+
+.divider{
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+  .divider-left,
+  .divider-right {
+    flex-grow: 1
+    height: 1px
+    background-color: red
+    transform: scaleY(0.5)
+  }
+  .divider-left {
+    margin-right: 16px
+  }
+  .divider-right {
+    margin-left: 16px
+  }
+  .divider-center{
+    flex-grow: 0
+    flex-shrink: 0
+  }
+}

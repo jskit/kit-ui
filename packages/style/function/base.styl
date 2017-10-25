@@ -1,0 +1,162 @@
+// mixins for clearfix
+clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+// // Sizing shortcuts 使用 postcss-size
+// size($width, $height) {
+//   width: $width;
+//   height: $height;
+// }
+
+// square($size) {
+//   size($size, $size);
+// }
+
+blockCenter() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// TODO: add scrollableX & scrollableY
+scrollable() {
+  overflow: auto;
+
+  // 允许独立的滚动区域和触摸回弹
+  -webkit-overflow-scrolling: touch;
+}
+
+// Resize anything
+resizable($direction) {
+  resize: $direction; // Options: horizontal, vertical, both
+  overflow: auto; // Per CSS3 UI, `resize` only applies when `overflow` isn't `visible`
+}
+
+// Placeholder text
+placeholder($color = $input-placeholder-color) {
+  // Firefox
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  // Safari and Chrome
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+// Opacity
+opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $ieOpacity = ($opacity * 100);
+  filter: unquote('alpha(opacity=' + $ieOpacity + ')');
+}
+
+
+/// Is It Light?
+/// Checks the lightness of $color, and if it passes the $threshold of lightness, it returns the `$yes` color. Otherwise, it returns the `$no` color. Use this function to dynamically output a foreground color based on a given background color.
+///
+/// @param {color} $color - Color to check the lightness of.
+/// @param {color} $yes - Color to return if $color is light.
+/// @param {color} $no - Color to return if $color is dark.
+/// @param {percentage} $threshold - Threshold of lightness to check against.
+///
+/// @return The $yes color or $no color.
+isLight($color, $yes = #333, $no = #fff, $threshold = 60%) {
+  if (lightness($color) > $threshold) {
+    return $yes;
+  } else {
+    return $no;
+  }
+}
+
+
+// Text
+// -----------------------------------------------------------------------------
+
+// Text overflow
+// Requires inline-block or block for proper styling
+textOverflow() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+// Line clamp
+// http://dropshado.ws/post/1015351370/webkit-line-clamp
+lineMax($lines = 2, $line-height = 1.3em) {
+  word-break: break-all;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines; // number of lines to show
+  overflow: hidden;
+  line-height: $line-height;
+  max-height: $line-height * $lines;
+
+  // 不要使用 text-align: justify; 会导致文字和...重叠
+  // 默认左对齐，不要写死
+}
+
+// CSS image replacement
+textHide() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+textReset($line-height = 1.3) {
+  // font-family: $font-family-base;
+  // We deliberately do NOT reset font-size.
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: $line-height;
+  text-align: left; // Fallback for where `start` is not supported
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+}
+
+// line(type = 'bottom', prop = 'after') {
+//   position: relative;
+//   &:[prop]{
+//     content: '';
+//     position: absolute;
+//     if(type == 'bottom' || type == 'top') {
+//       transform: scaleY(0.5);
+//     }else{
+//       transform: scaleX(0.5);
+//     }
+//     left: 0;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     height: 1px;
+//     overflow: hidden;
+//     width: 100%;
+//     background-color: rgb(221, 221, 221);
+//     display: block;
+//     transform-origin: center;
+//   }
+// }

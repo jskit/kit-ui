@@ -1,0 +1,74 @@
+@import "./mixin";
+
+// package: Grid
+// =============================================================================
+
+// Grid system
+// $grid-columns           = 24;
+// grid-gutter-width       = 0;
+
+// Grid system
+.{$ns}row {
+  makeRow();
+  display: block;
+}
+
+.{$ns}row-flex {
+  display: flex;
+  flex-flow: row wrap;
+
+  &:before,
+  &:after {
+    display: flex;
+  }
+}
+
+
+
+.{$ns}col {
+  position: relative;
+  display: block;
+}
+
+makeGridColumns();
+makeGrid();
+
+// Extra small grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+makeGrid(-xs);
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: $screen-sm-min) {
+  makeGrid(-sm);
+}
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: $screen-md-min) {
+  makeGrid(-md);
+}
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: $screen-lg-min) {
+  makeGrid(-lg);
+}
+
+// Extra Large grid
+//
+// Columns, offsets, pushes, and pulls for the full hd device range.
+
+@media (min-width: $screen-xl-min) {
+  makeGrid(-xl);
+}

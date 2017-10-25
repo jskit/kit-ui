@@ -1,0 +1,61 @@
+
+// Swing
+// =============================================================================
+
+swingMake($className, $keyframeName) {
+  makeAnimate($className, $keyframeName);
+  .{$className}-enter {
+    transform-origin: top center;
+  }
+  .{$className}-leave {
+    transform-origin: top center;
+  }
+}
+
+swingMake('swing', 'swing');
+
+// keyframes
+// -----------------------------------------------------------------------------
+
+@keyframes swing {
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  100% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+
+// @keyframes swing {
+//   0%,
+//   100% {
+//     transform: translateX(0px);
+//   }
+//   20% {
+//     transform: translateX(-10px);
+//   }
+//   40% {
+//     transform: translateX(10px);
+//   }
+//   60% {
+//     transform: translateX(-5px);
+//   }
+//   80% {
+//     transform: translateX(5px);
+//   }
+// }
+s

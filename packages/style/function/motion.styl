@@ -1,0 +1,37 @@
+// @see http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+// @see http://davidwalsh.name/translate3d
+forceHardwareAcceleration {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+animate($name, $duration = $animate-duration, $delay = 0, $iterate = 1) {
+  $delay = $delay + '';
+
+  if (str-index($delay, s) == null) {
+    $delay = $delay + 's';
+  }
+
+  animation: $name $duration $delay $iterate;
+}
+
+makeAnimate($className, $keyframeName) {
+  // .{$className}-appear
+  .{$className}-enter,
+  .{$className}-leave {
+    animation-play-state: paused;
+  }
+
+  //@see http://www.jianshu.com/p/e139d449f5bb Miscellaneous函数
+  // .{$className}-appear.{$className}-appear-active,
+  // 这里只激活时拥有-active，才有效果
+  .{$className}-enter.{$className}-enter-active {
+    animation-name: $keyframeName ? $keyframeName : $className + '-in';
+    animation-play-state: running;
+  }
+  .{$className}-leave.{$className}-leave-active {
+    animation-name: $keyframeName ? $keyframeName : $className + '-out';
+    animation-play-state: running;
+  }
+}

@@ -1,0 +1,250 @@
+// 状态表示可以系统化 如 active disabled hide
+// 还有 round，radius 以及 process，loading，
+
+
+// 状态设定无需前缀
+.block,
+.is-block {
+  display: block;
+  width: 100%;
+}
+
+// 边框、边线 默认灰色边线   hor 横向，ver 纵向
+.border {
+
+}
+.line-hor{
+
+}
+.line-ver{
+
+}
+
+
+// 形状 shape，全局使用
+for $shape-key, $shape-value in $shapes {
+  .is-{$shape-key} {
+    border-radius: $shape-value;
+  }
+}
+
+// x轴原点
+.is-flex-start {
+  justify-content: flex-start;
+}
+
+// x轴居中
+.is-flex-center {
+  justify-content: center;
+}
+
+// x轴反方向
+.is-flex-end {
+  justify-content: flex-end;
+}
+
+// x轴平分
+.is-flex-space-between {
+  justify-content: space-between;
+}
+
+// x轴有间隔地平分
+.is-flex-space-around {
+  justify-content: space-around;
+}
+
+// 顶部对齐
+.is-flex-top {
+  align-items: flex-start;
+}
+
+// 居中对齐
+.is-flex-middle {
+  align-items: center;
+}
+
+// 底部对齐
+.is-flex-bottom {
+  align-items: flex-end;
+}
+
+// 链接状态
+// -----------------------------------------------------------------------------
+// .link {
+.link,
+.is-link {
+  font-weight: normal;
+  color: $link-color;
+  border-radius: 0;
+
+  &,
+  &:focus,
+  &:active,
+  &.active,
+  &.disabled {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &:hover {
+    border-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+  }
+
+  &:disabled {
+    &:hover,
+    &:focus {
+      color: $link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+// 激活 不全局设定，具体使用具体设置
+/* :active,
+.active{
+
+} */
+
+
+
+// 禁用，默认效果灰掉，不仅仅是半透明的处理，通过滤镜变灰，
+// 并且 禁用了鼠标事件，但键盘事件未禁用（此方法不够完美）
+// 并且 focus 时无状态显示，禁止 focus 最好了
+[disabled],
+.disabled {
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+  // 元素永远不会成为鼠标事件的target，本质是穿透此元素，鼠标事件能把该元素下层的元素捕获
+  // 好的做法是，使用 js 统一处理此类元素，禁止事件行为或提醒，并且设置其无法聚焦
+  pointer-events: none; // Disable mouse events
+
+  cursor: $cursor-disabled;
+  opacity: .5;
+
+  // 可以使用滤镜变灰
+  filter: grayscale(100%);
+  filter: gray;
+
+  &:hover{
+    cursor: $cursor-disabled;
+  }
+  &:focus{
+    outline: none;
+  }
+}
+
+// 默认使用 reboot 样式，也可以选用排版样式
+.reboot {}
+.typo   {}
+
+// 隐藏
+[hidden],
+.hidden{
+  display: none;
+}
+
+/*
+
+https://github.com/ant-design/ant-design-mobile/wiki/%E8%AE%BE%E8%AE%A1%E5%8F%98%E9%87%8F%E8%A1%A8%E5%8F%8A%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83
+
+变量命名规范
+
+@{组件}-{属性}-{场景}-{状态}-{大小}-{反色}
+
+组件
+
+可选，具体组件名：如 button tabs list input 等。未指定时表示全局通用。
+
+> 组件名可以复合，例如 default-button table tabs-current link-button 以表示更精确的主体。
+
+属性
+
+必选，变量实际内容。
+
+- brand 通用品牌色
+- fill 背景色
+- border-color 边框色
+- color 色彩。优先使用上面三种。
+- border-width 边框大小
+- font-size 文字大小
+- radius 圆角大小
+- height 容器高度
+- v-spacing 垂直间距
+- h-spacing 水平间距
+
+
+## 场景
+
+- text 文本
+- heading 标题
+- subhead 子标题
+- caption 辅助说明文字
+- paragraph 段落文字
+- placeholder 占位符
+- display 广告/展示
+- icontext 图标文字
+- link 链接
+- body 页面
+- overlay 浮层
+- mask 遮罩
+- shadow 阴影
+
+
+## 状态
+
+可选。
+
+- base 基本/默认
+- tap 按下
+- disabled 失效
+- ~~~~~~~~~
+- priamry 主要
+- success 成功
+- warning 警告
+- info 信息
+- important 重要/强调
+- error 错误
+
+
+## 大小
+
+约定的大小选项。可选，一般和 font-size radius height spacing border-width 进行配合。
+
+- xl 超大
+- lg 大
+- md 中
+- sm 小
+- xs 超小
+
+## 反色
+
+可选。
+
+- inverse 用于深色背景
+*/
+
+/*
+  参看：http://www.w3cplus.com/css3/ten-effects-with-css3-filter
+
+  elm {
+    filter: none | <filter-function > [ <filter-function> ]
+   }
+
+  其中filter-function一个具有以下值可选：（可以多次混合使用）
+  grayscale灰度
+  sepia褐色（求专业指点翻译）
+  saturate饱和度
+  hue-rotate色相旋转
+  invert反色
+  opacity透明度
+  brightness亮度
+  contrast对比度
+  blur模糊
+  drop-shadow阴影
+*/

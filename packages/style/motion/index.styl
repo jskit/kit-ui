@@ -1,0 +1,53 @@
+// nsa- 动画前缀
+$anpre = '';
+
+// Animation class hook
+$animate-hook = "animated";
+
+// Animation duration
+$animate-duration = 0.3s;
+
+
+
+// Base style
+// =============================================================================
+// 动画基础样式
+
+animated() {
+  animation-duration: $animate-duration;
+  animation-fill-mode: both;
+
+  forceHardwareAcceleration();
+}
+
+.{$animate-hook} {
+  animated();
+
+  // Modifier for infinite repetition
+  &--infinite {
+    animation-iteration-count: infinite;
+  }
+}
+
+// IMPORT Animations
+// =============================================================================
+//
+// 类名的添加和切换取决于 transition 特性的值。比如 transition="fade"，会有三个 CSS 类名：
+// .fade-transition 始终保留在元素上。
+// .fade-enter 定义进入过渡的开始状态。只应用一帧然后立即删除。
+// .fade-leave 定义离开过渡的结束状态。在离开过渡开始时生效，在它结束后删除。
+//
+// Vue.transition('bounce', {
+//   enterClass: 'bounceInLeft',
+//   leaveClass: 'bounceOutRight'
+// })
+//
+
+// @import "animate/fade";
+// @import "animate/shake";
+@import "animate/slide";
+// @import "animate/spin";
+// @import "animate/move";
+// @import "animate/other";
+// @import "animate/swing";
+// @import "animate/zoom";

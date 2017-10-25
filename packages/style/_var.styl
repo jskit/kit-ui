@@ -1,0 +1,348 @@
+// Global Variables
+//
+// Copy settings from this file into the provided `_custom.scss` to override
+// the Bootstrap defaults without modifying key, versioned files.
+
+
+// Namespace
+// -----------------------------------------------------------------------------
+// 链接字符串 usage: #{$ns}
+
+// Set classes namespace, e.g. `vue-`
+$ns = null;
+// $ns = 'vui-';
+
+
+// Table of Contents
+//
+// Fonts //颜色，大小，配置、间隔等各种自定义变量
+// Themes: Colors
+// Options
+// Spacing
+// Animations
+
+// Html，Body
+// Links
+// Grid breakpoints
+// Grid containers
+// Grid columns
+// Components
+//    Tables Buttons Forms Dropdowns
+//    Navbar Navs Pagination Pager [form/alerts]States Cards
+//    Tooltips Popovers Labels Modals Alerts
+//    Progress bars   List group   Image thumbnails
+//    Breadcrumbs Carousel Close Code
+
+// General variable structure
+//
+// Variable format should follow the `$component-modifier-state-property` order.
+
+
+
+// Fonts 安全字体设定
+// -----------------------------------------------------------------------------
+// Font, line-height, and color for body text, headings, and more.
+
+/*
+// FreeSans: Ships with many Linux distros, including Ubuntu
+// Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+//        Arial to get picked up by the browser, even though neither is available
+//        in Chrome OS.
+// Droid Sans: Ships with all versions of Android.
+// Roboto: Android new font-family from Android ISC
+// Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+// Helvetica Neue: iOS & OS X 10.10 UI font (not Lucida Grande any more)
+//                 http://morrick.me/archives/6873
+// http://www.kendraschaefer.com/2012/06/chinese-standard-web-fonts-the-ultimate-guide-to-css-font-family-declarations-for-web-design-in-simplified-chinese/
+
+// Helvetica
+
+// apple.com: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana,
+*/
+
+// $font-family-sans-serif = "Helvetica Neue", Helvetica, "Segoe UI", Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei", sans-serif;
+$font-family-sans-serif = "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif = Georgia, "Times New Roman", Times, SimSimSun, serif; //FangSong, STFangSong
+$font-family-code  = Monaco, Menlo, Consolas, "Courier New", monospace;
+$code-family = $font-family-code;
+// font-family: system-ui,PingFang SC,STHeiti,sans-serif; font-size: 75%; // google 断网页面提醒
+//楷体？根本就用不到
+// $font-family-kai = Georgia, "Times New Roman", Times, Kai, "Kaiti SC", KaiTi, BiauKai, serif;
+
+
+
+//
+// Start 开始设定
+//
+
+
+
+// Font-size: 1rem = 100px
+// -----------------------------------------------------------------------------
+// rem 基准
+// 此基准会根据具体情况由页面设置，默认取100px，
+
+// This sets 1rem to be 100px
+// $rem-base = 100px;
+// 实现时直接使用 px 单位即可，编译时自动转化为 rem
+$font-base = 100px;
+
+
+// Typography
+// -----------------------------------------------------------------------------
+// Font, line-height, and color for body text, headings, and more.
+
+
+
+// The default font-size is set to 100% of the browser style sheet (usually 16px)
+// for compatibility with browser-based text zoom or user-set defaults.
+
+// Since the typical default browser font-size is 16px, that makes the calculation for grid size.
+// If you want your base font-size to be different and not have it affect the grid breakpoints,
+// set $rem-base to $base-font-size and make sure $base-font-size is a px value.
+
+// Background color for `<body>`
+$body-background        = #fff;
+// Base background color for most components
+$component-background   = #fff;
+$font-family = $font-family-sans-serif;
+
+$color-heading             = alpha(#000, 85%);
+$color-text                = alpha(#000, 65%);
+$color-text-secondary      = alpha(#000, 43%);
+$color-heading-dark        = alpha(#fff, 97%);
+$color-text-dark           = alpha(#fff, 91%);
+$color-text-secondary-dark = alpha(#fff, 67%);
+$font-size-base            = 12px;
+// $font-size-lg              = $font-size-base + 2;
+
+$font-size-base     = 16px;       // 基准字体大小
+$font-size-body     = 16px;       // body 字体大小
+$line-height-base   = 1.5;      // body 行高，对中文使用
+$font-size-inherit  = 100%;    // 部分位置，可用继承字体大小
+$font-family-base   = $font-family;   // body 字体设定
+$border-radius-base = 4px;
+$border-width-base  = 1px;
+$border-radius-sm   = 2px;
+$border-style-base  = solid;
+
+// Define default font weights
+$font-weight-normal = normal;
+$font-weight-bold = 400;  //某些字体使用 bold 太粗
+
+// xx-small
+// x-small
+// small
+// medium
+// large
+// x-large
+// xx-large
+$font-size-xs  = 12px;
+$font-size-sm  = 14px;
+$font-size-md  = $font-size-base;
+$font-size-lg  = 18px;
+$font-size-xl  = 20px;
+$font-size-xxl = 24px;
+
+
+// Colors:
+// -----------------------------------------------------------------------------
+// Grayscale and brand colors for use across Bootstrap.
+// 所有组件颜色样式都应该由此处可控
+
+// 灰度值引用 gray.styl 即可，如需修改自行覆盖
+
+// Application Colors
+// 这里是主题色，若设为背景，则对应字体颜色取反相色（如按钮，效果同此 ATOM 预览，自动显示了背景色并且反相了字体颜色）
+// 主题色全部使用 $color- 前缀，另要提供灰度级别的颜色9种级别，之后不再使用其他灰色
+
+$blue-6     = #108ee9;
+$purple-6   = #7265e6;
+$cyan-6     = #00a2ae;
+$green-6    = #00a854;
+$pink-6     = #f5317f;
+$red-6      = #f04134;
+$orange-6   = #f56a00;
+$yellow-6   = #ffbf00;
+
+$color-primary            = $blue-6;    // #2db7f5;  // #0e90d2
+$color-sub                = lighten($color-primary, 15%);
+$color-info               = $blue-6;    // #5bc0de;
+$color-success            = $green-6;   // #5cb85c;
+$color-warning            = $yellow-6;  // #F37B1D;
+$color-danger             = $red-6;     // #f04134;
+$color-error              = $red-6;     // #f04134;
+$color-highlight          = $red-6;     // #f04134;
+$color-gray               = lighten($black, 87.5%);
+$color-dark               = #393939;
+$color-normal             = #d9d9d9;
+$disabled-color           = #d9d9d9;
+
+
+// 备选颜色
+// #0275d8 //#157EFB //#428bca //#15afef #0e90d2
+// #5eb95e //#53D76A //#5cb85c
+// #f0ad4e //#FD9426 //#f0ad4e
+// #dd514c //#FC3159 //#da314b
+
+// For internal use: a color map
+$theme-colors = {
+  primary:   $color-primary,
+  sub:       $color-sub,
+  info:      $color-info,
+  success:   $color-success,
+  warning:   $color-warning,
+  danger:    $color-danger,
+  alert:     $color-danger,
+  dark:      $color-dark,
+};
+// $theme-sizes: (
+//   xs: $font-size-xs,
+//   sm: $font-size-sm,
+//   lg: $font-size-lg,
+//   xl: $font-size-xl
+// );
+
+// $theme-states: (
+//   active: #{$ns}active,
+//   disabled: #{$ns}disabled
+// );
+
+// Diffirent border-radius styles
+$global-radius  = 4px;
+$global-round   = 1600px;
+$shapes = {
+  radius: $global-radius,
+  dot: $global-round,
+  circle: $global-round,
+  round: $global-round,
+  square: initial,
+};
+
+// Disabled cursor for form controls and buttons.
+// 禁用状态 可自定义鼠标图标
+$cursor-disabled = not-allowed;
+
+// Animation 详见 动画样式模块
+$ease-out             = cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in              = cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-in-out          = cubic-bezier(0.645, 0.045, 0.355, 1);
+$ease-out-back        = cubic-bezier(0.18, 0.89, 0.32, 1.28);
+$ease-in-back         = cubic-bezier(0.6, -0.3, 0.74, 0.05);
+$ease-in-out-back     = cubic-bezier(0.68, -0.55, 0.27, 1.55);
+$ease-out-circ        = cubic-bezier(0.08, 0.82, 0.17, 1);
+$ease-in-circ         = cubic-bezier(0.6, 0.04, 0.98, 0.34);
+$ease-in-out-circ     = cubic-bezier(0.78, 0.14, 0.15, 0.86);
+$ease-out-quint       = cubic-bezier(0.23, 1, 0.32, 1);
+$ease-in-quint        = cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$ease-in-out-quint    = cubic-bezier(0.86, 0, 0.07, 1);
+
+
+// Spacing
+// -----------------------------------------------------------------------------
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+
+$spacer       = 16px;
+$spacer-x     = $spacer;
+$spacer-y     = $spacer;
+$border-width = 1px;
+$line-height  = 1.5;
+
+// Z-index
+$z-index-view-top     = 20;
+$z-index-view-bottom  = $z-index-view-top - 10;
+
+$z-index-base         = 1000;
+$z-index-modal        = $z-index-base + 10;
+$z-index-notification = $z-index-base + 100;
+$z-index-offcanvas    = $z-index-base + 20;
+$z-index-popover      = $z-index-base + 30;
+
+// TODO Grid columns
+// -----------------------------------------------------------------------------
+// Set the number of columns and specify the width of the gutters.
+
+// Media queries breakpoints
+// Extra small screen / phone
+$screen-xs              = 480px;
+$screen-xs-min          = $screen-xs;
+
+// Small screen / tablet
+$screen-sm              = 768px;
+$screen-sm-min          = $screen-sm;
+
+// Medium screen / desktop
+$screen-md              = 992px;
+$screen-md-min          = $screen-md;
+
+// Large screen / wide desktop
+$screen-lg              = 1200px;
+$screen-lg-min          = $screen-lg;
+
+// Extra Large screen / full hd
+$screen-xl              = 1600px;
+$screen-xl-min          = $screen-xl;
+
+// provide a maximum
+$screen-xs-max          = ($screen-sm-min - 1px);
+$screen-sm-max          = ($screen-md-min - 1px);
+$screen-md-max          = ($screen-lg-min - 1px);
+$screen-lg-max          = ($screen-xl-min - 1px);
+
+// $grid-columns              = 12;
+// $grid-gutter-width         = 30px;
+$grid-columns            = 24;
+$grid-gutter-width       = 0;
+
+
+// Typography
+// -----------------------------------------------------------------------------
+// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
+
+// 一些约定：
+// 变量 *-color 即字体颜色，其他边框等，需指明 *-border-color
+// 组件的实现，独立且被其他组件依赖的先实现，如容器，网格，按钮
+
+// Body base
+// -----------------------------------------------------------------------------
+// Settings for the `<body>` element.
+
+$body-background           = #fff; //#f4f4f4 //#FBF9FE
+$body-color                = $gray-dark;
+$body-font-family          = $font-family-base;
+$body-font-weight          = $font-weight-normal;
+$body-font-style           = normal;
+$body-font-size            = $font-size-base;
+$body-line-height          = $line-height-base;
+
+
+$color-heading   = $body-color;
+$color-text      = $body-color;
+
+// ICONFONT
+$iconfontName       = "iconfont";
+$iconfontUrl        = "https://at.alicdn.com/t/font_zck90zmlh7hf47vi";
+
+// LINK
+$link-color                = $color-primary;
+$link-hover-color          = lighten($link-color, 20%);
+$link-active-color         = darken($link-color, 5%);
+$link-disabled-color       = lighten($link-color, 15%);
+$link-hover-decoration     = none;
+
+$font-size-h1 = 1.5em;
+$font-size-h2 = 1.3em;
+$font-size-h3 = 1.15em;
+$font-size-h4 = 1em;
+$font-size-h5 = 0.9em;
+$font-size-h6 = 0.8em;
+
+// -----------------------------------------------------------------------------
+// Components
+// -----------------------------------------------------------------------------
+
+
+
+// 容器 Container
+// -----------------------------------------------------------------------------

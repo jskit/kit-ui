@@ -1,0 +1,187 @@
+@import "../../style/fn";
+
+// package: Alert
+// =============================================================================
+
+$alert-font-size = 12px
+$alert-font-size-lg = $alert-font-size + 2
+$alert-message-color = $color-heading;
+$alert-text-color = $color-text;
+
+.{$ns}alert {
+  position: relative;
+  padding: 8px 48px 8px 38px;
+  border-radius: $border-radius-base;
+  color: $alert-text-color;
+  font-size: $alert-font-size;
+  line-height: $line-height-base;
+
+  &&-no-icon {
+    padding: 8px 48px 8px 16px;
+  }
+
+  &-icon {
+    // font-size: $alert-font-size-lg;
+    top: 8px + ($alert-font-size * $line-height-base / 2 - $alert-font-size-lg / 2);
+    left: 16px;
+    position: absolute;
+  }
+
+  &-desc {
+    font-size: $alert-font-size;
+    line-height: 21px;
+    display: none;
+  }
+
+  &-success {
+    border: $border-width-base $border-style-base $green-2;
+    background-color: $green-1;
+    .{$ns}alert-icon {
+      color: $color-success;
+    }
+  }
+
+  &-info {
+    border: $border-width-base $border-style-base $primary-2;
+    background-color: $primary-1;
+    .{$ns}alert-icon {
+      color: $color-info;
+    }
+  }
+
+  &-warning {
+    border: $border-width-base $border-style-base $yellow-2;
+    background-color: $yellow-1;
+    .{$ns}alert-icon {
+      color: $color-warning;
+    }
+  }
+
+  &-error {
+    border: $border-width-base $border-style-base $red-2;
+    background-color: $red-1;
+    .{$ns}alert-icon {
+      color: $color-error;
+    }
+  }
+
+  &-close-icon {
+    font-size: $alert-font-size;
+    position: absolute;
+    right: 16px;
+    top: 10px;
+    height: 12px;
+    line-height: 12px;
+    overflow: hidden;
+    cursor: pointer;
+
+    .iconsvg-cross {
+      color: $color-text-secondary;
+      transition: color .3s ease;
+      &:hover {
+        color: #404040;
+      }
+    }
+  }
+
+  &-close-text {
+    position: absolute;
+    right: 16px;
+  }
+
+  &-with-desc {
+    padding: 16px 16px 16px 60px;
+    position: relative;
+    border-radius: $border-radius-base;
+    color: $color-text;
+    line-height: 1.5;
+  }
+
+  &-with-desc&-no-icon {
+    padding: 16px;
+  }
+
+  &-with-desc &-icon {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    font-size: 24px;
+  }
+
+  &-with-desc &-close-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    font-size: $alert-font-size;
+  }
+
+  &-with-desc &-message {
+    font-size: $alert-font-size-lg;
+    color: $alert-message-color;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  &-with-desc &-desc {
+    display: block;
+  }
+
+  &-banner {
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 0;
+  }
+
+  // 这里动画，多理解下细节
+
+  // &-slide-up-enter,
+  // &-slide-up-leave,
+  &-slide-up-enter-active,
+  &-slide-up-leave-active {
+    transition: all .3s $ease-in-out-circ;
+  }
+  &-slide-up-enter-active {
+    animation: alertSlideUpIn .3s $ease-in-out-circ;
+    animation-fill-mode: both;
+  }
+  &-slide-up-leave-active {
+    animation: alertSlideUpOut .3s $ease-in-out-circ;
+    animation-fill-mode: both;
+  }
+  &&-slide-up-leave-to {
+    height: 0 !important;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all .3s $ease-in-out-circ;
+    transform-origin: 50% 0;
+  }
+}
+
+@keyframes alertSlideUpIn {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes alertSlideUpOut {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
+  }
+}
+

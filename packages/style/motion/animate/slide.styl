@@ -1,0 +1,151 @@
+
+// Slide
+// =============================================================================
+
+slideMake($className, $keyframeName) {
+  makeAnimate($className, $keyframeName);
+  .{$className}-enter {
+    animation-timing-function: $ease-out-quint;
+  }
+  .{$className}-leave {
+    animation-timing-function: $ease-in-quint;
+  }
+}
+
+slideMake('slide-up', null);
+slideMake('slide-down', null);
+slideMake('slide-left', null);
+slideMake('slide-right', null);
+
+
+// keyframes
+// -----------------------------------------------------------------------------
+
+@keyframes slide-up-in {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes slide-up-out {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
+  }
+}
+
+@keyframes slide-down-in {
+  0% {
+    opacity: 0;
+    transform-origin: 100% 100%;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 100% 100%;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes slide-down-out {
+  0% {
+    opacity: 1;
+    transform-origin: 100% 100%;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 100% 100%;
+    transform: scaleY(0);
+  }
+}
+
+@keyframes slide-left-in {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slide-left-out {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleX(0);
+  }
+}
+
+@keyframes slide-right-in {
+  0% {
+    opacity: 0;
+    transform-origin: 100% 0%;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 100% 0%;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes slide-right-out {
+  0% {
+    opacity: 1;
+    transform-origin: 100% 0%;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 100% 0%;
+    transform: scaleX(0);
+  }
+}
+
+// @keyframes slide-top-fixed {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(-10px);
+//   }
+//
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+//
+// // Slide bottom fixed
+// @keyframes slide-bottom-fixed {
+//   0% {
+//     opacity: 0;
+//     transform: translateY(10px);
+//   }
+//
+//   100% {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }

@@ -1,0 +1,93 @@
+@import "../../style/fn";
+
+// package: Layout
+// =============================================================================
+
+.{$ns}layout-flex {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  background: #ececec;
+}
+
+.{$ns}layout-flex.{$ns}layout-flex-row {
+  flex-direction: row;
+}
+
+.{$ns}layout-flex.{$ns}layout-flex-row > .{$ns}layout-flex,
+.{$ns}layout-flex.{$ns}layout-flex-row > .{$ns}layout-content {
+  overflow-x: hidden;
+}
+
+.{$ns}layout-footer,
+.{$ns}layout-header {
+  flex: 0 0 auto
+}
+
+.{$ns}layout-header {
+  background: #404040;
+  padding: 0 50px;
+  height: 64px;
+  line-height: 64px
+}
+
+.{$ns}layout-footer {
+  padding: 24px 50px;
+  color: rgba(0,0,0,.65);
+  font-size: 12px;
+}
+
+.{$ns}layout-content {
+  flex: auto
+}
+
+.{$ns}layout-sider {
+  transition: all .15s cubic-bezier(.645,.045,.355,1);
+  position: relative;
+  background: #404040;
+  min-width: 0
+}
+
+.{$ns}layout-sider-has-trigger {
+  padding-bottom: 48px
+}
+
+.{$ns}layout-sider-right {
+  order: 1
+}
+
+.{$ns}layout-sider-trigger {
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  cursor: pointer;
+  height: 48px;
+  line-height: 48px;
+  color: #fff;
+  background: #404040;
+  z-index: 1
+}
+
+.{$ns}layout-sider-zero-width > * {
+  overflow: hidden
+}
+
+.{$ns}layout-sider-zero-width-trigger {
+  position: absolute;
+  top: 64px;
+  right: -36px;
+  text-align: center;
+  width: 36px;
+  height: 42px;
+  line-height: 42px;
+  background: #404040;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background .3s ease
+}
+
+.{$ns}layout-sider-zero-width-trigger:hover {
+  background: #535353
+}
