@@ -9,7 +9,13 @@
 </template>
 
 <script>
+import Page from '../../Page'
+import Group from '../../Group'
 export default {
+  components: {
+    [Page.name]: Page,
+    [Group.name]: Group,
+  },
   data: function () {
     return {
     }
@@ -20,7 +26,6 @@ export default {
   },
   attached: function () {},
   methods: {},
-  components: {},
 }
 </script>
 

@@ -38,10 +38,14 @@
 </template>
 
 <script>
+import Page from '../../Page'
+import Group from '../../Group'
 import Icon from '../../Icon'
 import { systemIcons, customIcons } from './data'
 export default {
   components: {
+    [Page.name]: Page,
+    [Group.name]: Group,
     [Icon.name]: Icon,
   },
   data() {

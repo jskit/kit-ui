@@ -552,10 +552,10 @@ export default {
     '小程序': '/weapp',
   },
   footer: {
-    github: 'https://github.com/webcoding/vue-custom',
+    github: 'https://github.com/jskit/kit-ui',
     nav: {
-      '加入我们': 'https://devnode.cn/',
-      '意见反馈': 'https://github.com/webcoding/vue-custom/issues',
+      '加入我们': 'https://github.com/jskit',
+      '意见反馈': 'https://github.com/jskit/kit-ui/issues',
     },
   },
   navBase: '/component',

@@ -35,6 +35,7 @@
  */
 import PropTypes from 'vue-types'
 import Icon from '../../Icon'
+
 export default {
   name: 'KitButton',
 

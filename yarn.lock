@@ -3979,9 +3979,9 @@ kind-of@^5.0.0, kind-of@^5.0.2:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-5.1.0.tgz#729c91e2d857b7a419a1f9aa65685c4c33f5845d"
 
-kit-doc@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/kit-doc/-/kit-doc-1.0.1.tgz#44d2c24b9754ad0353b6c4235e09fc1d9913f23f"
+kit-doc@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/kit-doc/-/kit-doc-1.0.2.tgz#bf2071aeeb00e8657cbc3606382bd338999d7a3d"
   dependencies:
     lodash "^4.17.4"
     vue "^2.5.2"

@@ -7,9 +7,9 @@ Vue.use(Router)
 // 路由去中心化
 // https://webpack.js.org/guides/dependency-management/#require-context
 // 目前export default .js导出引用不友好，部分场景需特殊处理
-const reqFiles = require.context('../views', true, /^\.(\/([\s\S])+)?\/route\.js$/)
-const routes = reqFiles.keys().map(key => {
-  return reqFiles(key).default
+const reqModules = require.context('../views', true, /^\.(\/([\s\S])+)?\/route\.js$/)
+const routes = reqModules.keys().map(key => {
+  return reqModules(key).default
 }, {})
 
 // 处理特殊路由
@@ -20,7 +20,6 @@ routes.push({
   //   name: 'index',
   // },
 })
-console.log(routes)
 
 const router = new Router({
   mode: 'hash',

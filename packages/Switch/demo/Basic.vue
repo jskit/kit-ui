@@ -49,12 +49,16 @@
 </template>
 
 <script>
+import Page from '../../Page'
+import Group from '../../Group'
 import Cell from '../../Cell'
 import Switch from '../../Switch'
 export default {
   name: 'page-switch',
 
   components: {
+    [Page.name]: Page,
+    [Group.name]: Group,
     [Cell.name]: Cell,
     [Switch.name]: Switch,
   },

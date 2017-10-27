@@ -7,9 +7,9 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const context = config.context || path.resolve(__dirname, "../")
+// const context = config.context || path.resolve(__dirname, "../")
 module.exports = {
-  // context: context,
+  // context: path.resolve(__dirname, "../"),
   entry: {
     app: './src/main.js'
   },
@@ -35,6 +35,7 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
+        exclude: /(libs|node_modules)/,
         include: [resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')

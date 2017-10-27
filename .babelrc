@@ -10,6 +10,9 @@
     "stage-2"
   ],
   "plugins": [
+    // babel对于 export default {} 支持不好
+    // 需要插件 babel-plugin-add-module-exports：
+    // "add-module-exports",
     "syntax-dynamic-import", // 动态解析 import()，实现路由懒加载
     "transform-vue-jsx",  // 支持 vue 直接 render JSX 语法
     "transform-runtime"

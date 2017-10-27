@@ -55,8 +55,12 @@
 
 <script>
 import Button from '../../Button'
+import Page from '../../Page'
+import Group from '../../Group'
 export default {
   components: {
+    [Page.name]: Page,
+    [Group.name]: Group,
     [Button.name]: Button,
   },
   data() {

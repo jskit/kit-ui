@@ -38,11 +38,15 @@
 </template>
 
 <script>
+import Page from '../../Page'
+import Group from '../../Group'
 import Spin from '../../Spin'
 import Switch from '../../Switch'
 import Alert from '../../Alert'
 export default {
   components: {
+    [Page.name]: Page,
+    [Group.name]: Group,
     [Spin.name]: Spin,
     [Alert.name]: Alert,
     [Switch.name]: Switch,
