@@ -1,5 +1,5 @@
 
-`kit-ui` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
+<!-- `kit-ui` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。 -->
 
 一些常用标识：
 
