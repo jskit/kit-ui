@@ -26,13 +26,17 @@ export default {
 </script>
 
 <style lang="stylus">
+// html,
+// body,
+// #app,
+// .transition-box {
+//   height: 100%;
+// }
 body {
   min-width: initial;
   width: 100%;
-  overflow-y: hidden;
 }
 .tpl-demo {
-  height: 100%;
 
   .indexicon {
     font-size: 22px;

@@ -41,13 +41,13 @@ export default {
 <style lang="stylus">
 @import "./style";
 
-.transition-box
+.transition-box {
   // position absolute
-  z-index 0
-  width 100%
-  height 100%
-  overflow-x hidden
-  overflow-y scroll
-  transition all .3s cubic-bezier(.55,0,.1,1)
+  z-index: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: all .3s cubic-bezier(.55,0,.1,1);
+}
 
 </style>
