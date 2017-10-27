@@ -9,7 +9,7 @@ function lazyLoad(page) {
 const Index = lazyLoad('index')
 const isComming = {
   template: `
-    <div>isComming</div>
+    <div>demo isComming</div>
   `,
 }
 // const viewTpl = {
@@ -23,13 +23,11 @@ const registerRoute = (list) => {
   list.map(item =>
     item.list.map((page) => {
       const path = upperFirst(camelCase(page.path))
-      // const isPackage = packages.indexOf(path) > -1
-      // 这里使用 require，要加 default，好坑啊(require 已经是老方法了，新的用 import)
-      // const component = isPackage ? () => import(`@root/packages/${path}/demo/Basic`) : isComming // () => import(`@/views/${path}`)
+      const isPackage = page.status !== 'todo'
       routes.push({
         name: `demo/${page.path}`,
         path: `${page.path}`,
-        component: () => import(`@root/packages/${path}/demo/Basic`),
+        component: isPackage ? () => import(`@root/packages/${path}/demo/Basic`) : isComming,
         meta: {
           title: page.title,
           desc: page.desc,

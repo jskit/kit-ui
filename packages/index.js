@@ -15,9 +15,9 @@ const components = []
 // 返回对象
 const modules = reqModules.keys().reduce((module, key) => {
   // export default 语法导出不友好，特殊处理
-  const componentName = key.replace('.', '').replace('/', '')
-  components.push(module)
+  const componentName = key.replace('.', '').replace(/\//g, '')
   module[componentName] = reqModules(key).default // || reqModules(key)
+  components.push(module)
   return module
 }, {})
 
