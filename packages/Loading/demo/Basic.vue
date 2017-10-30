@@ -1,16 +1,21 @@
 <template>
-  <Page class="page-abc">
+  <Page class="page-loading">
     <div class="page-header">
       <h3>示例页面 <small>demo</small></h3>
     </div>
-    <Group padded>
-    </Group>
+    <p><KitLoading type="circle" color="black" /></p>
+    <p><KitLoading type="circle" color="white" /></p>
+    <p><KitLoading type="gradient-circle" color="black" /></p>
+    <p class="gray"><KitLoading type="gradient-circle" color="white" /></p>
   </Page>
 </template>
 
 <script>
+import Loading from '../../Loading'
 export default {
-  components: {},
+  components: {
+    [Loading.name]: Loading,
+  },
   data: function () {
     return {
     }
@@ -25,7 +30,7 @@ export default {
 </script>
 
 <style scope>
-.abc-demo .abc{
-  margin-right: 0.5rem;
+.gray {
+  background: gray;
 }
 </style>

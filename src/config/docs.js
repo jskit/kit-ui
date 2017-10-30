@@ -99,7 +99,7 @@ export const components = [
         path: 'lazyload',
         title: 'lazyload 图片懒加载',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',

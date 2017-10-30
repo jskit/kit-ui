@@ -1,6 +1,6 @@
 <template>
-  <div :class="['van-loading', 'van-loading--' + type]">
-    <span :class="['van-loading__spinner', 'van-loading__spinner--' + type, 'van-loading__spinner--' + color]"></span>
+  <div :class="[`${prefixCls}loading`, `${prefixCls}loading--` + type]">
+    <span :class="[`${prefixCls}loading__spinner`, `${prefixCls}loading__spinner--` + type, `${prefixCls}loading__spinner--` + color]"></span>
   </div>
 </template>
 
