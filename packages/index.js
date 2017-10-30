@@ -11,16 +11,17 @@ require.context(directory, useSubdirectories, regExp)
 // webpack 老版本不支持这种新语法，建议使用最新版3.7+
 const reqModules = require.context('./', true, /^(?!(_|\.md|style))\.\/([A-Z]+([a-zA-Z])+){1}\/$/)
 const components = []
+
 // At build-time cache will be populated with all required modules.
 // 返回对象
 const modules = reqModules.keys().reduce((module, key) => {
   // export default 语法导出不友好，特殊处理
   const componentName = key.replace('.', '').replace(/\//g, '')
+  console.log(componentName)
   module[componentName] = reqModules(key).default // || reqModules(key)
   components.push(module)
   return module
 }, {})
-
 export default modules
 
 // // At build-time cache will be populated with all required modules.

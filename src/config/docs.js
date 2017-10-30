@@ -106,7 +106,7 @@ export const components = [
         path: 'loading',
         title: 'loading 加载指示器',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',

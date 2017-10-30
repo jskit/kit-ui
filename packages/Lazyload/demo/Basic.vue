@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  components: {},
   data: function () {
     return {
     }
@@ -20,7 +21,6 @@ export default {
   },
   attached: function () {},
   methods: {},
-  components: {},
 }
 </script>
 
