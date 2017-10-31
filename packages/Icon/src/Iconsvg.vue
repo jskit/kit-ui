@@ -164,10 +164,14 @@ export default {
 </script>
 
 <style lang="stylus" scope>
-.iconsvg {
+.icon-svg {
   width: 1em;
   height: 1em;
   fill: currentColor;
   transform: inherit;
+}
+.icon-font {
+  font-size: 1em;
+  color: currentColor;
 }
 </style>
