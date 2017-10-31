@@ -35,7 +35,7 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        // exclude: /(libs|node_modules)/,
+        exclude: /(libs|node_modules)/,
         include: [resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')
@@ -49,7 +49,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
         include: [resolve('src'), resolve('test')]
       },
       {
