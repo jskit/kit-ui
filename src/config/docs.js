@@ -94,13 +94,13 @@ export const components = [
         desc: '',
         status: 'todo',
       },
-      {
-        icon: '',
-        path: 'lazyload',
-        title: 'lazyload 图片懒加载',
-        desc: '',
-        status: 'doing',
-      },
+      // {
+      //   icon: '',
+      //   path: 'lazyload',
+      //   title: 'lazyload 图片懒加载',
+      //   desc: '',
+      //   status: 'doing',
+      // },
       {
         icon: '',
         path: 'loading',
@@ -317,7 +317,7 @@ export const components = [
         path: 'toast',
         title: 'Toast 轻提示',
         desc: '一种轻量级反馈/提示，可以用来显示不会打断用户操作的内容，适合用于页面转场、数据交互的等场景中。',
-        status: 'doing',
+        status: 'todo',
       },
       {
         icon: '',

@@ -6,8 +6,8 @@ import router from './router'
 
 import KitDoc from 'kit-doc'
 import vueUI from '../vui'
-console.log('vueUI')
-console.log(vueUI)
+// console.log('vueUI')
+// console.log(vueUI)
 Vue.use(KitDoc)
 Vue.use(vueUI)
 

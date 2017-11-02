@@ -65,8 +65,6 @@
 import Alert from '../../Alert'
 export default {
   components: {
-    [Page.name]: Page,
-    [Group.name]: Group,
     [Alert.name]: Alert,
   },
   data: function () {

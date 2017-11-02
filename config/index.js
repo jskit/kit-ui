@@ -1,11 +1,31 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
-
-// const appPath = process.env.npm_config_path || '../'
+var chalk = require('chalk')
+var ProgressBarPlugin = require('progress-bar-webpack-plugin')
+var WebpackNotifierPlugin = require('webpack-build-notifier')
 
 module.exports = {
   // context: path.resolve(__dirname, '../'),
   template: 'src/index.tpl',
+  plugins: [
+    //进度条插件
+    new ProgressBarPlugin({
+      summary: false,
+      format: chalk.green.bold('[:bar] :percent ') + chalk.yellow('(:elapsed seconds) :msg'),
+      customSummary (buildTime) {
+        process.stdout.write(chalk.green.bold(" ---------buildTime:" + buildTime + "---------"));
+      },
+    }),
+
+    // https://github.com/RoccoC/webpack-build-notifier
+    new WebpackNotifierPlugin({
+      title: 'app',
+      logo: '../static/img/logo.png',
+      successSound: 'Submarine',
+      failureSound: 'Glass',
+      suppressSuccess: true
+    }),
+  ],
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
@@ -38,5 +58,5 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
-  }
+  },
 }

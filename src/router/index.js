@@ -9,7 +9,7 @@ Vue.use(Router)
 // 目前export default .js导出引用不友好，部分场景需特殊处理
 const reqModules = require.context('../views', true, /^\.(\/([\s\S])+)?\/route\.js$/)
 const routes = reqModules.keys().map(key => {
-  return reqModules(key).default
+  return reqModules(key).default || reqModules(key)
 }, {})
 
 // 处理特殊路由
