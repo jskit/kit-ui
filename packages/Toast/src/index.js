@@ -56,6 +56,8 @@ const createMethod = type => {
 //   ...options,
 // })
 
+Toast.info = createMethod('info')
+Toast.offline = createMethod('offline')
 Toast.loading = createMethod('loading')
 Toast.success = createMethod('success')
 Toast.fail = createMethod('fail')

@@ -13,10 +13,10 @@
       <KitButton
         @click="successToast"
       >cumstom icon</KitButton>
-      <KitButton
+      <!-- <KitButton
         @click="infoToast">
         cumstom icon
-      </KitButton>
+      </KitButton> -->
       <KitButton
         @click="successToast"
       >success</KitButton>
@@ -28,7 +28,7 @@
       >network</KitButton>
       <KitButton
         @click="loadingToast"
-      ></KitButton>
+      >loading</KitButton>
     </Group>
   </Page>
 </template>
@@ -71,9 +71,9 @@ export default {
     showToastNoMask() {
       Toast.info('Toast without mask !!!', 2, null, false);
     },
-    infoToast() {
-      // Toast.info(customIcon(), 1)
-    },
+    // infoToast() {
+    //   Toast.info(customIcon(), 1)
+    // },
     successToast() {
       Toast.success('Load success !!!', 1);
     },

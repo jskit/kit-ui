@@ -9,7 +9,7 @@
         <!-- with icon -->
         <template v-if="displayStyle === 'default'">
           <KitLoading v-if="type === 'loading'" color="white" />
-          <KitIcon mode="svg" v-else class="van-toast__icon" :name="type" />
+          <KitIcon mode="svg" v-else class="van-toast__icon" :type="iconType" />
           <div v-if="message" class="van-toast__text">{{ message }}</div>
         </template>
       </div>
@@ -22,6 +22,7 @@
 import PropTypes from 'vue-types'
 import Icon from '../../Icon'
 import Loading from '../../Loading'
+import { toastTypes, toastTypesMap } from '../../_util'
 export default {
   name: 'KitToast',
 
@@ -34,9 +35,7 @@ export default {
     type: PropTypes.oneOf([
       'text',
       'html',
-      'loading',
-      'success',
-      'fail',
+      ...toastTypes,
     ]).def('text'),
     message: String,
     forbidClick: Boolean,
@@ -50,7 +49,10 @@ export default {
 
   computed: {
     displayStyle() {
-      return ['success', 'fail', 'loading'].indexOf(this.type) !== -1 ? 'default' : this.type
+      return toastTypes.indexOf(this.type) !== -1 ? 'default' : this.type
+    },
+    iconType() {
+      return toastTypesMap[this.type]
     },
   },
 }

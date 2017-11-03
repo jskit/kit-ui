@@ -36,13 +36,7 @@
  */
 import PropTypes from 'vue-types'
 import Icon from '../../Icon'
-function noop() { }
-const typeMap = {
-  info: `info-circle`,
-  success: `check-circle`,
-  warning: `warning-circle`,
-  error: `cross-circle`,
-}
+import { noop, alertTypes, alertTypesMap } from '../../_util'
 // var closeIcon = {
 //   template: '<a @click="handleClose($event)" :class="`${prefixCls}-close-icon`"><slot></slot></a>',
 //   props: ['prefixCls', 'handleClose'],
@@ -57,12 +51,7 @@ export default {
   props: {
     prefixCls: PropTypes.string.def('alert'),
     // type: String,
-    type: PropTypes.oneOf([
-      'success',
-      'info',
-      'warning',
-      'error',
-    ]).def('info'),
+    type: PropTypes.oneOf(alertTypes).def(alertTypes[0]), // info
     closable: Boolean,
     closeText: String,
     message: String,
@@ -89,7 +78,7 @@ export default {
       } = this.$props
       // banner 模式默认为警告
       this.type = banner && type === undefined ? 'warning' : type || 'info'
-      let iconType = typeMap[type] || 'default'
+      let iconType = alertTypesMap[type] || 'default'
       // use outline icon in alert with description
       if (desc) {
         iconType += '-o'

@@ -545,11 +545,9 @@ export const language = {
 export default {
   header: {
     '首页': '/',
-    '指引': '/guideline',
-    '组件': '/component',
-    // '模式': '/patterns',
-    '实战': '/project',
-    '小程序': '/weapp',
+    '文档': '/#/docs',
+    '组件': '/#/component',
+    '预览': '/#/demo',
   },
   footer: {
     github: 'https://github.com/jskit/kit-ui',

@@ -1,25 +1,19 @@
 // 此文件建议跟着项目走，可随时变更修改、扩展定制
 
-require('es6-promise').polyfill()
-import fetch from 'kit-fetch'
-
-// function parseJSON(response) {
-//   return response.json()
-// }
+import fetch from 'kit-fetch';
+import { notification } from 'kit-ui';
 
 function checkStatus(response) {
-  // response.status >= 200 && response.status < 300
-  if (response.ok) {
-    return response
+  if (response.status >= 200 && response.status < 300) {
+    return response;
   }
-
-  const { status, statusText } = response
-  const error = new Error(statusText)
-  error.response = response
-  error.status = status
-  error.statusText = statusText
-  // 不能给 error.message 字段赋值，这是只读属性，参见[Error对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Error)
-  throw error
+  notification.error({
+    message: `请求错误 ${response.status}: ${response.url}`,
+    description: response.statusText,
+  });
+  const error = new Error(response.statusText);
+  error.response = response;
+  throw error;
 }
 
 /**
@@ -29,22 +23,36 @@ function checkStatus(response) {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
-export default async function request(url, options) {
-  // 如需开启代理或切换 API 域，应在项目中配置 url
-  // options.mothod = (options.mothod || 'GET').toUpperCase()
-  // if (options.mothod === 'GET') {
-  //   url = getUrl(url, options.data)
-  // }
-  const response = await fetch(url, options)
+export default function request(url, options) {
+  const defaultOptions = {
+    credentials: 'include',
+  };
+  const newOptions = { ...defaultOptions, ...options };
+  if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
+    newOptions.headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json; charset=utf-8',
+      ...newOptions.headers,
+    };
+    newOptions.body = JSON.stringify(newOptions.body);
+  }
 
-  checkStatus(response)
-
-  const data = await response.json()
-
-  return data
-  // return fetch(url, options)
-  //   .then(checkStatus)
-  //   .then(parseJSON)
-  //   .then(data => ({ data }))
-  //   .catch(err => ({ err }))
+  return fetch(url, newOptions)
+    .then(checkStatus)
+    .then(response => response.json())
+    .catch((error) => {
+      if (error.code) {
+        notification.error({
+          message: error.name,
+          description: error.message,
+        });
+      }
+      if ('stack' in error && 'message' in error) {
+        notification.error({
+          message: `请求错误: ${url}`,
+          description: error.message,
+        });
+      }
+      return error;
+    });
 }
