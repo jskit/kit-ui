@@ -54,26 +54,4 @@ body {
     }
   }
 }
-.page-header {
-  font-size: 20px;
-  margin: 20px 16px;
-  // text-align: center;
-  display: block;
-  line-height: 1.5;
-
-  p{
-    margin-bottom: 10px;
-    font-size: 12px;
-  }
-}
-
-.page-part {
-  margin-bottom: 15px;
-}
-.page-block {
-  margin: 16px 0;
-}
-.page-content{
-  padding: 0 16px;
-}
 </style>

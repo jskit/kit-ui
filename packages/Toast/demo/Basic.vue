@@ -34,9 +34,8 @@
 </template>
 
 <script>
-import Toast from '../../Toast';
-import Button from '../../Button';
-console.log(Toast)
+import Toast from '../../Toast'
+import Button from '../../Button'
 
 const customIcon = {
   template: `
@@ -54,8 +53,9 @@ export default {
     }
   },
   computed: {},
-  ready: function () {
-    Toast.loading('Loading...', 30, () => {
+  mounted: function () {
+    console.log('mounted')
+    Toast.loading('Loading...', 30000, () => {
       console.log('Load complete !!!');
     });
 

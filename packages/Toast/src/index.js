@@ -56,12 +56,12 @@ const createMethod = type => {
 //   ...options,
 // })
 
-Toast.info = createMethod('info')
+Toast.info = createMethod()
 Toast.offline = createMethod('offline')
 Toast.loading = createMethod('loading')
 Toast.success = createMethod('success')
 Toast.fail = createMethod('fail')
-Toast.clear = () => {
+Toast.hide = () => {
   instance && instance.clear()
 }
 
