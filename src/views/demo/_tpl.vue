@@ -38,6 +38,10 @@ body {
   width: 100%;
 }
 .tpl-demo {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.6;
 
   .indexicon {
     font-size: 22px;
@@ -82,16 +86,88 @@ body {
     overflow: hidden
     background-color: #fff
 
+    &:first-child
+      margin-top: 0;
+
+  .img
+    width: 30px;
+    height: 30px;
+
   .item-hd
     padding: 16px
     display: flex
     align-items: center
     transition: opacity 0.3s
 
+    &.is-show
+      opacity: .2;
+
+  .item-bd
+    height: 0;
+    overflow: hidden;
+
+    .is-show
+      height: auto;
+
   .text
     flex: 1
 
   .item-icon
     size: 30px
+
+.link-box
+  opacity: 0;
+  position: relative;
+  background-color: #FFFFFF;
+  line-height: 1.41176471;
+  font-size: 16px;
+
+  transform: translateY(-50%);
+  transition: .3s;
+
+  .is-show
+    opacity: 1;
+    transform: translateY(0);
+
+  .link
+    padding: 10px 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &:before
+      content: " ";
+      position: absolute;
+      left: 16px;
+      top: 0;
+      right: 16px;
+      height: 1px;
+      border-top: 1rpx solid #D8D8D8;
+      color: #D8D8D8;
+
+    &:first-child:before
+      display: none;
+
+  .link-text
+    flex: 1;
+
+  .link-arrow
+    padding-right: 8px;
+    position: relative;
+
+    &:after
+      content: " ";
+      display: inline-block;
+      height: 9px;
+      width: 9px;
+      border-width: 1px 1px 0 0;
+      border-color: #888888;
+      border-style: solid;
+      transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+      position: absolute;
+      top: 50%;
+      margin-top: -4px;
+      right: 14px;
+
 </style>
 

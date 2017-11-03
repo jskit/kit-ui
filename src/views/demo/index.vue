@@ -6,55 +6,19 @@
   </div>
   <div class="index-bd">
     <div class="kind-list">
-      <div class="item">
+
+      <div class="item" v-for="item in list" :key="item.title">
         <div class="item-hd">
-          <div class="text">布局 Layout</div>
+          <div class="text">{{ item.title }}</div>
           <img class="item-icon" src="~assets/kind/view.png" alt="">
         </div>
-        <!-- <div class="item-hd">
-          <router-link to="/"><div class="text">view</div><Icon type="arrow" /></router-link>
-        </div> -->
-      </div>
-      <div class="item">
-        <div class="item-hd">
-          <div class="text">导航 Nav</div>
-          <img class="item-icon" src="~assets/kind/nav.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-hd">
-          <div class="text">组件 Component</div>
-          <img class="item-icon" src="~assets/kind/content.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-hd">
-          <div class="text">交互</div>
-          <img class="item-icon" src="~assets/kind/form.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-hd">
-          <div class="text">表单组件</div>
-          <img class="item-icon" src="~assets/kind/form.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-hd">
-          <div class="text">手势 Gesture</div>
-          <img class="item-icon" src="~assets/kind/media.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-hd">
-          <div class="text">组合组件 Combination</div>
-          <img class="item-icon" src="~assets/kind/map.png" alt="">
-        </div>
-      </div>
-      <div class="item">
-        <div class="item-hd">
-          <div class="text">其他 Other</div>
-          <img class="item-icon" src="~assets/kind/map.png" alt="">
+        <div class="item-bd">
+          <div class="link-box">
+            <router-link class="link" :to="`/${it.path}`" v-for="it in item.list" :key="it.path">
+              <div class="link-text">{{ it.title }}</div>
+              <KitIcon type="check" class="link-arrow" />
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
@@ -63,10 +27,18 @@
 </template>
 
 <script>
+import { components } from '@/config/docs'
+import Icon from '@root/packages/Icon'
 export default {
   name: 'Component',
+
+  components: {
+    [Icon.name]: Icon,
+  },
+
   data () {
     return {
+      list: components,
       desc: '以下为组件 demo，样式仅供参考，开发者可根据自身需求自定义组件样式，具体属性参数详见开发文档。',
     }
   },
