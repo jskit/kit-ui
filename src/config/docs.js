@@ -547,7 +547,7 @@ export default {
     '首页': '/',
     '文档': '/#/docs',
     '组件': '/#/component',
-    '预览': '/#/demo',
+    '小程序': '/#/kit-app',
   },
   footer: {
     github: 'https://github.com/jskit/kit-ui',
