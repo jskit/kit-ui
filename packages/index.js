@@ -21,10 +21,11 @@ const packages = reqModules.keys().reduce((modules, key) => {
   return modules
 }, {})
 
-// 这里封装一个方法，返回 N 个单独的 module
+// 这里可以封装一个方法，返回 N 个单独的 module
 console.info("现有组件:")
 console.info(Object.keys(packages))
 export default packages
+// export default Object.assign({}, packages)
 
 // export default {
 //   version,
