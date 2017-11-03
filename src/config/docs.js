@@ -317,7 +317,7 @@ export const components = [
         path: 'toast',
         title: 'Toast 轻提示',
         desc: '一种轻量级反馈/提示，可以用来显示不会打断用户操作的内容，适合用于页面转场、数据交互的等场景中。',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',

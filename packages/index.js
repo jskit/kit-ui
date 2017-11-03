@@ -10,20 +10,32 @@ require.context(directory, useSubdirectories, regExp)
 // require.context 不能使用太新的语法，不支持会报错
 // webpack 老版本不支持这种新语法，建议使用最新版3.7+
 const reqModules = require.context('./', true, /^(?!(_|\.md|style))\.\/([A-Z]+([a-zA-Z])+){1}\/$/)
-const components = []
 
 // At build-time cache will be populated with all required modules.
 // 返回对象
-export const modules = reqModules.keys().reduce((module, key) => {
-  // export default 语法导出不友好，特殊处理
+const packages = reqModules.keys().reduce((modules, key) => {
+  // export default 语法导出不友好，兼容处理
   const componentName = key.replace('.', '').replace(/\//g, '')
   // console.log(componentName)
-  module[componentName] = reqModules(key).default || reqModules(key)
-  components.push(module)
-  return module
+  modules[componentName] = reqModules(key).default || reqModules(key)
+  return modules
 }, {})
 
-export default modules
+// 这里封装一个方法，返回 N 个单独的 module
+console.info("现有组件:")
+console.info(Object.keys(packages))
+export default packages
+
+// export default {
+//   version,
+//   install,
+//   ...packages,
+// }
+
+// export default {
+//   version,
+//   install,
+// }
 
 // // At build-time cache will be populated with all required modules.
 // const cache = {}
