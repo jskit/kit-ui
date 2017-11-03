@@ -4,6 +4,10 @@ var chalk = require('chalk')
 var ProgressBarPlugin = require('progress-bar-webpack-plugin')
 var WebpackNotifierPlugin = require('webpack-build-notifier')
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
   // context: path.resolve(__dirname, '../'),
   template: 'src/index.tpl',
@@ -20,7 +24,7 @@ module.exports = {
     // https://github.com/RoccoC/webpack-build-notifier
     new WebpackNotifierPlugin({
       title: 'app',
-      logo: '../static/img/logo.png',
+      logo: resolve('/static/img/logo.png'),
       successSound: 'Submarine',
       failureSound: 'Glass',
       suppressSuccess: true
@@ -28,8 +32,8 @@ module.exports = {
   ],
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: resolve('/dist/index.html'),
+    assetsRoot: resolve('/dist'),
     assetsSubDirectory: './static',
     assetsPublicPath: './',
     productionSourceMap: true,
