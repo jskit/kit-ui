@@ -11,8 +11,8 @@ import Lazyload from '../packages/Lazyload'
 Vue.use(KitDoc)
 Vue.use(KitUI)
 Vue.use(Lazyload, {
-  lazyComponent: true
-});
+  lazyComponent: true,
+})
 
 Vue.config.productionTip = false
 
