@@ -4,10 +4,10 @@
 export function noop() { }
 
 export const typeMaps = {
-  info: `info-circle`,
-  success: `check-circle`,
-  warning: `warning-circle`,
-  error: `cross-circle`,
+  info: 'info-circle',
+  success: 'check-circle',
+  warning: 'warning-circle',
+  error: 'cross-circle',
 }
 
 function filterMap(arr, all = typeMaps) {
@@ -25,9 +25,9 @@ export const alertTypes = ['info', 'success', 'warning', 'error']
 export const alertTypesMap = filterMap(alertTypes)
 
 const toastTypeMaps = {
-  loading: `loading`,
-  success: `check`,
-  fail: `warning`,
+  loading: 'loading',
+  success: 'check',
+  fail: 'warning',
 }
 export const toastTypes = ['loading', 'success', 'fail']
 export const toastTypesMap = filterMap(toastTypes, toastTypeMaps)

@@ -3,11 +3,11 @@
     // 为了避免 import x from 'foo' 被 babel 转换为 require，我们需要在 .babelrc 的 presets 配置中标明 "modules": false：
     ["env", {
       "modules": false,
-      "loose": true
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
     }],
-    "es2015", // 需要这个，否则引用 lib/index.js 报 exports 未定义
     "stage-2"
-    // "stage-0"
   ],
   "plugins": [
     // 安装 babel-plugin-import 插件
@@ -15,7 +15,7 @@
     // babel-plugin-module-resolver 是一个Babel模块解析插件, 在.babelrc中可以配置模块的导入搜索路径
     // babel对于 export default {} 支持不好
     // 需要插件 babel-plugin-add-module-exports：
-    "add-module-exports",
+    // "add-module-exports",
     "syntax-dynamic-import", // 动态解析 import()，实现路由懒加载
     // "syntax-flow", // 支持解析 flow
     // "syntax-jsx",  // 支持解析 jsx

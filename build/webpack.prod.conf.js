@@ -7,6 +7,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+// var UglifyEsPlugin = require('uglify-es-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
@@ -37,6 +38,8 @@ var webpackConfig = merge(baseWebpackConfig, {
       },
       sourceMap: true
     }),
+    // new UglifyEsPlugin(),
+    // new require('babel-minify')(),
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')

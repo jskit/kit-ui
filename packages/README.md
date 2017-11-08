@@ -28,6 +28,8 @@ packages
 
 ## 关于命名
 
+对于自定义标签的命名遵循 W3C 规则 (小写，并且包含一个短杠)，这被认为是最佳实践。
+
 - 扩展名: Vue模块使用 .vue 扩展名。
 - 文件名: 文件名使用帕斯卡命名。
   - 如, ItemList.vue。
@@ -35,6 +37,7 @@ packages
   - 如, const reservationItem = <ReservationCard />;
 - 模块命名: 模块使用当前文件名一样的名称。Footer 文件夹，就应该包含命名为 Footer 的模块。但是，如果整个文件夹是一个模块，使用 index.js作为入口文件，然后直接文件夹名作为模块的名称。
   - import Footer from './Footer';
+
 - 高阶模块命名: 对于生成一个新的模块，其中的模块名应该使用新模块的名称
 - 属性命名: 避免使用DOM相关的属性来用作其他的用途。
   - 对于style 和 className这样的属性名，我们都会默认它们代表一些特殊的含义，如元素的样式，CSS class的名称。
