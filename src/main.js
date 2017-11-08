@@ -5,13 +5,14 @@ import App from './App'
 import router from './router'
 
 import KitDoc from 'kit-doc'
-import KitUI from '../vui'
-import Lazyload from '../packages/Lazyload'
+import KitUI, { Lazyload } from '@root/packages'
+import configLazyload from './config/lazyload'
+// import './utils/rem'
 
 Vue.use(KitDoc)
 Vue.use(KitUI)
 Vue.use(Lazyload, {
-  lazyComponent: true,
+  ...configLazyload,
 })
 
 Vue.config.productionTip = false

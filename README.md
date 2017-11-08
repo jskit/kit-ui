@@ -78,6 +78,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ```bash
 .
 ├── build/                 # 构建本目录
+├── config/                # 项目构建配置
 ├── src/                   # 项目 demo 示例
 ├── lib/                   # npm 发布出口
 ├── dist/                  # build 生成的生产环境下的项目
@@ -86,7 +87,8 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 │   │   ├── demo/              # 使用示例
 │   │   ├── src/               # 源码
 │   │   ├── test/              # 测试用例
-│   │   └── index.js           # 出口
+│   │   ├── index.js           # 出口
+│   │   └── readme.md          # 文档
 │   ├── ...
 │   ├── index.js
 │   └── README.md

@@ -1,4 +1,7 @@
 var path = require('path')
+var chalk = require('chalk')
+var ProgressBarPlugin = require('progress-bar-webpack-plugin')
+var WebpackNotifierPlugin = require('webpack-build-notifier')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
@@ -7,7 +10,6 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
-// const context = config.context || path.resolve(__dirname, "../")
 module.exports = {
   // context: path.resolve(__dirname, "../"),
   entry: {
@@ -16,7 +18,7 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
+    publicPath: config.env['__PROD__']
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
@@ -108,5 +110,24 @@ module.exports = {
       }
     ]
   },
-  plugins: config.plugins || [],
+  plugins: [
+    //进度条插件
+    new ProgressBarPlugin({
+      summary: false,
+      format: chalk.green.bold('[:bar] :percent ') + chalk.yellow('(:elapsed seconds) :msg'),
+      customSummary (buildTime) {
+        process.stdout.write(chalk.green.bold(" ---------buildTime:" + buildTime + "---------"));
+      },
+    }),
+
+    // https://github.com/RoccoC/webpack-build-notifier
+    new WebpackNotifierPlugin({
+      title: 'app',
+      logo: config.logo || resolve('/static/img/logo.png'),
+      successSound: 'Submarine',
+      failureSound: 'Glass',
+      suppressSuccess: true
+    }),
+    ...config.plugins,
+  ],
 }
