@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 
 import KitDoc from 'kit-doc'
-import KitUI, { Lazyload } from '@root/packages'
+import KitUI, { Lazyload } from '../packages'
 import configLazyload from './config/lazyload'
 // import './utils/rem'
 

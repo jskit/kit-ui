@@ -11,6 +11,7 @@ module.exports = function () {
     'version',
     'index.js',
     'index.test.js',
+    'webpack.packages.js',
     'next.js',
     'README.md',
     '.DS_Store',
