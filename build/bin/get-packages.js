@@ -8,8 +8,10 @@ module.exports = function () {
     '_util',
     'style',
     'Abc',
+    'version',
     'index.js',
     'index.test.js',
+    'next.js',
     'README.md',
     '.DS_Store',
   ]

@@ -4,7 +4,7 @@
   "description": "custom element with vue2.x",
   "main": "./packages/index.js",
   "scripts": {
-    "prepublishOnly": "babel packages --out-dir lib",
+    "prepublishOnly": "node packages --out-dir lib",
     "build:file": "node build/bin/build-entry.js",
     "build:packages": "node build/bin/build-packages.js --color",
     "dev": "node build/dev-server.js",

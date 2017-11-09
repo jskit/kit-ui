@@ -9,8 +9,6 @@ var IMPORT_TEMPLATE = 'import {{name}} from \'./{{package}}\''
 var ISNTALL_COMPONENT_TEMPLATE = '{{name}}'
 var MAIN_TEMPLATE = `{{include}}
 
-const version = '{{version}}'
-
 const packages = {
 {{list}}
 }
@@ -31,14 +29,14 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export {
-  install,
   version,
+  install,
 {{list}}
 }
 
 export default {
-  install,
   version,
+  install,
 }
 `
 
@@ -48,6 +46,11 @@ console.log(Components)
 var includeComponentTemplate = []
 var installTemplate = []
 var listTemplate = []
+
+includeComponentTemplate.push(render(IMPORT_TEMPLATE, {
+  name: 'version',
+  package: 'version',
+}))
 
 Components.forEach(name => {
   var componentName = uppercamelcase(name)

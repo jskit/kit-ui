@@ -1,3 +1,4 @@
+import version from './version'
 import Alert from './Alert'
 import Badge from './Badge'
 import Button from './Button'
@@ -18,7 +19,6 @@ import Toast from './Toast'
 import XElement from './XElement'
 import XHeader from './XHeader'
 
-const version = '0.3.5'
 const packages = {
   Alert,
   Badge,
@@ -57,8 +57,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export {
-  install,
   version,
+  install,
   Alert,
   Badge,
   Button,
@@ -81,6 +81,6 @@ export {
 }
 
 export default {
-  install,
   version,
+  install,
 }
