@@ -6,6 +6,12 @@
   clearfix();
 }
 
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   color: #333;
@@ -14,7 +20,7 @@ body {
   background-color: #f8f8f8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "PingFang SC", "Helvetica Neue", 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: -apple-system-font, "PingFang SC", "Helvetica Neue", 'Avenir', Helvetica, Arial, sans-serif;
 }
 
 p {
@@ -44,6 +50,7 @@ img {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 body {

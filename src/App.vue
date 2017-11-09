@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view class="page-tpl"></router-view>
   </div>
 </template>
 
@@ -13,9 +13,14 @@ export default {
 <style lang="stylus">
 @import './style/index';
 
+.page-tpl {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-size: 16px;
+  overflow-y: scroll;
 }
 
 </style>

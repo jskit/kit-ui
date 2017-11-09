@@ -89,6 +89,15 @@ body {
     &:first-child
       margin-top: 0;
 
+    &.is-show
+      .item-hd
+        opacity: .2;
+      .item-bd
+        height: auto;
+      .link-box
+        opacity: 1;
+        transform: translateY(0);
+
   .img
     width: 30px;
     height: 30px;
@@ -99,15 +108,9 @@ body {
     align-items: center
     transition: opacity 0.3s
 
-    &.is-show
-      opacity: .2;
-
   .item-bd
     height: 0;
     overflow: hidden;
-
-    .is-show
-      height: auto;
 
   .text
     flex: 1
@@ -125,10 +128,6 @@ body {
   transform: translateY(-50%);
   transition: .3s;
 
-  .is-show
-    opacity: 1;
-    transform: translateY(0);
-
   .link
     padding: 10px 15px;
     position: relative;
@@ -142,7 +141,7 @@ body {
       top: 0;
       right: 16px;
       height: 1px;
-      border-top: 1rpx solid #D8D8D8;
+      border-top: 1px solid #D8D8D8;
       color: #D8D8D8;
 
     &:first-child:before
