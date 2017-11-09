@@ -2,9 +2,9 @@
   "name": "kit-ui",
   "version": "0.3.5",
   "description": "custom element with vue2.x",
-  "main": "./packages/index.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "prepublishOnly": "node packages --out-dir lib",
+    "prepublishOnly": "npm run build:packages",
     "build:file": "node build/bin/build-entry.js",
     "build:packages": "./node_modules/.bin/webpack --config ./packages/webpack.packages.js",
     "dev": "node build/dev-server.js",
