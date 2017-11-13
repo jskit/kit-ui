@@ -14,7 +14,9 @@ export default {
 @import './style/index';
 
 .page-tpl {
-  overflow-x: hidden;
+  // min-height: 100%;
+  // overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {

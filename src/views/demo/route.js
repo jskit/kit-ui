@@ -55,6 +55,14 @@ export default {
       },
       component: Index,
     },
+    {
+      path: 'z-index',
+      name: 'z-index',
+      component: lazyLoad('z-index'),
+      meta: {
+        title: '层级规范',
+      },
+    },
     ...registerRoute(components),
     { path: '*', component: isComming },
   ],

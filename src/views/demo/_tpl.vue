@@ -38,8 +38,6 @@ body {
   width: 100%;
 }
 .tpl-demo {
-  background-color: #F8F8F8;
-  height: 100%;
   font-size: 16px;
   line-height: 1.6;
 

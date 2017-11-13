@@ -11,12 +11,13 @@
         :class="{'is-show': !!item.open}"
         :key="item.title"
         :data-index="index"
+        :data-path="item.path"
         @click="clickToggle($event)">
         <div class="item-hd">
-          <div class="text">{{ item.title }} {{ item.icon | upperFirst }}</div>
+          <div class="text">{{ item.title }}</div>
           <img class="item-icon" :src="`${listMap[item.icon]}`" alt="">
         </div>
-        <div class="item-bd">
+        <div class="item-bd" v-if="item.list">
           <div class="link-box">
             <router-link
               class="link"
@@ -55,11 +56,19 @@ const listMap = {
   business: load('business'),
   other: load('content'),
   search: load('layout'),
-  zIndex: load('z-index'),
+  layer: load('z-index'),
 }
 
 components.forEach(item => {
   item.open = false
+})
+
+components.push({
+  icon: 'layer',
+  path: 'z-index',
+  title: '层级规范',
+  desc: '用于规范页面元素所属层级、层级顺序及组合规范。',
+  status: 'doing',
 })
 
 export default {
@@ -79,10 +88,8 @@ export default {
 
   filters: {
     upperFirst(value) {
-      return upperFirst(value)
+      return upperFirst(camelCase(value))
     },
-    splitTitle(value) {
-      },
   },
 
   computed: {
@@ -98,9 +105,17 @@ export default {
     iconType(type) {
       return typeMap[type]
     },
-    clickToggle(event) {
-      const index = event.currentTarget.getAttribute('data-index')
-      this.list[index].open = !this.list[index].open
+    clickToggle($event) {
+      const target = $event.currentTarget
+      const path = target.getAttribute('data-path')
+      const index = target.getAttribute('data-index')
+      if (path !== 'z-index') {
+        this.list[index].open = !this.list[index].open
+      } else {
+        this.$router.push({
+          name: 'z-index',
+        })
+      }
     },
   },
 }
