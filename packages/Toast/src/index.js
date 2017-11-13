@@ -5,9 +5,9 @@ let instance
 
 const defaultOptions = {
   visible: true,
+  mask: true,
   type: 'text',
   duration: 3000,
-  forbidClick: false,
   clear: () => {
     instance.visible = false
   },
@@ -57,10 +57,10 @@ const createMethod = type => {
 // })
 
 Toast.info = createMethod()
-Toast.offline = createMethod('offline')
 Toast.loading = createMethod('loading')
 Toast.success = createMethod('success')
 Toast.fail = createMethod('fail')
+Toast.offline = createMethod('offline')
 Toast.hide = () => {
   instance && instance.clear()
 }

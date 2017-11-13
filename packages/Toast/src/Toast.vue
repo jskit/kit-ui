@@ -1,19 +1,19 @@
 <template>
-  <transition name="van-toast-fade">
-    <div class="van-toast-wrapper" v-show="visible">
-      <div :class="['van-toast', 'van-toast--' + displayStyle]">
+  <transition name="kit-toast-fade">
+    <div class="kit-toast-wrapper" v-show="visible">
+      <div :class="['kit-toast', 'kit-toast--' + displayStyle]">
         <!-- text only -->
-        <div v-if="displayStyle === 'text'" class="van-toast__text">{{ message }}</div>
-        <div v-if="displayStyle === 'html'" class="van-toast__text" v-html="message" />
+        <div v-if="displayStyle === 'text'" class="kit-toast__text">{{ message }}</div>
+        <div v-if="displayStyle === 'html'" class="kit-toast__text" v-html="message" />
 
         <!-- with icon -->
         <template v-if="displayStyle === 'default'">
           <KitLoading v-if="type === 'loading'" color="white" />
-          <KitIcon mode="svg" v-else class="van-toast__icon" :type="iconType" />
-          <div v-if="message" class="van-toast__text">{{ message }}</div>
+          <KitIcon mode="svg" v-else class="kit-toast__icon" :type="iconType" />
+          <div v-if="message" class="kit-toast__text">{{ message }}</div>
         </template>
       </div>
-      <div class="van-toast__overlay" v-if="forbidClick" />
+      <div v-if="mask" class="kit-toast__overlay" />
     </div>
   </transition>
 </template>
@@ -22,7 +22,12 @@
 import PropTypes from 'vue-types'
 import Icon from '../../Icon'
 import Loading from '../../Loading'
-import { toastTypes, toastTypesMap } from '../../_util'
+
+const typeMaps = {
+  loading: 'loading',
+  success: 'check',
+  fail: 'warning',
+}
 export default {
   name: 'KitToast',
 
@@ -35,25 +40,30 @@ export default {
     type: PropTypes.oneOf([
       'text',
       'html',
-      ...toastTypes,
+      ...Object.keys(typeMaps),
     ]).def('text'),
     message: String,
-    forbidClick: Boolean,
+    mask: PropTypes.bool,
   },
 
   data() {
     return {
       visible: false,
-    };
+    }
   },
 
   computed: {
     displayStyle() {
-      return toastTypes.indexOf(this.type) !== -1 ? 'default' : this.type
+      return typeMaps[this.type] ? 'default' : this.type
     },
     iconType() {
-      return toastTypesMap[this.type]
+      return typeMaps[this.type]
     },
   },
 }
 </script>
+
+<style lang="stylus">
+@import "./style";
+
+</style>

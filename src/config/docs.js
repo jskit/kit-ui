@@ -1,7 +1,8 @@
 
 export const components = [
   {
-    title: '基础组件', // Layout
+    title: '基础组件',
+    icon: 'layout',
     list: [
       // {
       //   icon: '',
@@ -146,7 +147,8 @@ export const components = [
     ],
   },
   {
-    title: '导航', // Navigation
+    title: '导航',
+    icon: 'nav',
     list: [
       {
         icon: '',
@@ -200,7 +202,8 @@ export const components = [
     ],
   },
   {
-    title: '表单及扩展', // FormExtend
+    title: '表单相关',
+    icon: 'form',
     list: [
       {
         icon: '',
@@ -310,7 +313,8 @@ export const components = [
     ],
   },
   {
-    title: '操作反馈', // Feedback
+    title: '操作反馈',
+    icon: 'feedback',
     list: [
       {
         icon: '',
@@ -379,7 +383,8 @@ export const components = [
     ],
   },
   {
-    title: '高阶组合', // Complex
+    title: '高阶组合',
+    icon: 'complex',
     list: [
       {
         icon: '',
@@ -406,6 +411,7 @@ export const components = [
   },
   {
     title: '业务组件', // Combination
+    icon: 'business',
     list: [
       {
         icon: '',
@@ -507,6 +513,7 @@ export const components = [
   // },
   {
     title: '其他',
+    icon: 'other',
     list: [
       {
         icon: '',

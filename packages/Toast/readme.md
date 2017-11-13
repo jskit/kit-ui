@@ -5,3 +5,5 @@
 
 - 一次只显示一个 toast。
 - 有 Icon 的 Toast，字数为 4-6 个；没有 Icon 的 Toast，字数不宜超过 14 个。
+
+### API

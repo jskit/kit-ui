@@ -187,7 +187,7 @@ export default {
   width: 1em;
   height: 1em;
   fill: currentColor;
-  transform: inherit;
+  // transform: inherit; // 不要使用这个，有时外部盒子会有形变
 }
 .icon-font {
   font-size: 1em;
