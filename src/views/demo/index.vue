@@ -128,7 +128,7 @@ export default {
       const target = $event.currentTarget
       const status = target.getAttribute('data-status')
       if(status === 'todo') {
-        Toast('开发未完成', false)
+        Toast('开发未完成', 1000, null, false)
         return
       }
     },
