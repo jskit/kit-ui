@@ -30,6 +30,7 @@ const router = new Router({
 
 // const loginRouteName = 'login'
 const loginPath = '/login'
+const loggedIn = false
 router.beforeEach((to, from, next) => {
   const {
     meta = {},
@@ -39,6 +40,11 @@ router.beforeEach((to, from, next) => {
     title = '',
     desc = '',
   } = meta
+
+  // 解决拦截 router-link 跳转问题
+  if (meta.status === -1) {
+    return next(false)
+  }
 
   // const { logged = false } = store.state
   const logged = false

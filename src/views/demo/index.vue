@@ -2,7 +2,7 @@
 <Page class="page-index">
   <div class="index-hd">
     <img class="index-logo" src="~assets/kind/component.png" alt="">
-    <p class="index-desc">{{desc}}</p>
+    <p class="index-desc">{{ desc }}</p>
   </div>
   <div class="index-bd">
     <div class="kind-list">
@@ -21,8 +21,10 @@
           <div class="link-box">
             <router-link
               class="link"
-              :to="`/demo/${it.path}`"
               v-for="it in item.list"
+              :to="`/demo/${it.path}`"
+              :data-status="it.status"
+              @click.native="goNext"
               :key="it.path">
               <div class="link-text" v-html="itTitle(it.title)"></div>
               <KitIcon :type="iconType(it.status)" class="link-arrow" :class="{[`is-${it.status}`]: true}" />
@@ -38,6 +40,7 @@
 <script>
 import { components } from '@/config/docs'
 import Icon from '@root/packages/Icon'
+import Toast from '@root/packages/Toast'
 import { camelCase, upperFirst } from '@/utils'
 const typeMap = {
   todo: 'cross',
@@ -82,7 +85,7 @@ export default {
     return {
       listMap: listMap,
       list: components,
-      desc: '以下为组件 demo，样式仅供参考，开发者可根据自身需求自定义组件样式，具体属性参数详见开发文档。',
+      desc: '以下为组件 demo 示例，样式仅供参考，开发者可根据自身需求自定义组件样式，具体属性参数详见开发文档。',
     }
   },
 
@@ -115,6 +118,18 @@ export default {
         this.$router.push({
           name: 'z-index',
         })
+      }
+    },
+    goNext($event) {
+      // 结合 路由导航守卫（beforeRouteEnter 或 beforeEach）实现拦截 router-link 跳转
+      $event.stopPropagation()
+      // $event.preventDefault()
+
+      const target = $event.currentTarget
+      const status = target.getAttribute('data-status')
+      if(status === 'todo') {
+        Toast('开发未完成', false)
+        return
       }
     },
   },

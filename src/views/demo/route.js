@@ -24,6 +24,7 @@ const registerRoute = (list) => {
     item.list.map((page) => {
       const path = upperFirst(camelCase(page.path))
       const isPackage = page.status !== 'todo'
+
       routes.push({
         name: `demo/${page.path}`,
         path: `${page.path}`,
@@ -31,8 +32,15 @@ const registerRoute = (list) => {
         meta: {
           title: page.title,
           desc: page.desc,
+          status: !isPackage ? -1 : 0, // 组件状态为 -1 不允许加载
         },
       })
+      // 这里没法每个组件去设置，还是期望有个顶级方法
+      // pack.component.beforeRouteEnter = function (to, from, next) {
+      //   // 路由导航守卫
+      //   console.log(to)
+      //   next(!isPackage)
+      // }
       return false
     })
   )
