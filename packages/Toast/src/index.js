@@ -6,13 +6,15 @@ let instance
 
 const defaultOptions = {
   type: 'text',
-  duration: 3000,
+  duration: 2,
   visible: true,
   mask: true,
-  clear() {
+  // 不要使用箭头函数，会改变作用域
+  clear: function clear() {
     instance.visible = false
+    this.onClose()
   },
-  onClose() {
+  onClose: function onClose() {
     // 回调
   },
 }
@@ -27,14 +29,17 @@ const createInstance = () => {
   }
 }
 
-const Toast = (options = {}, duration = 3000, onClose = noop, mask = true) => {
+const Toast = (options = {}, duration = 2, onClose = noop, mask = true) => {
   createInstance()
+  // console.log(arguments)
+  // TODO: 还要精简
   if (typeof options === 'string') {
+    // 默认参数缺省时适配
     options = {
       message: options,
-      duration: duration,
-      onClose: onClose,
-      mask: mask,
+      duration,
+      onClose,
+      mask,
     }
   }
   // options = { ...defaultOptions, ...options }
@@ -47,17 +52,24 @@ const Toast = (options = {}, duration = 3000, onClose = noop, mask = true) => {
   if (options.duration !== 0) {
     instance.timer = setTimeout(() => {
       instance.clear()
-    }, options.duration)
+    }, options.duration * 1000)
   }
 
   return instance
 }
 
 const createMethod = type => {
-  return (options = {}) => {
+  return (options = {}, duration = 2, onClose = noop, mask = true) => {
+    if (typeof options === 'string') {
+      options = {
+        message: options,
+        duration,
+        onClose,
+        mask,
+      }
+    }
     return Toast(Object.assign({}, {
       type,
-      message: typeof options === 'string' ? options : options.message,
     }, options))
   }
 }
@@ -69,8 +81,8 @@ const createMethod = type => {
 
 Toast.show = createMethod()
 Toast.info = createMethod('info')
-Toast.success = createMethod('success')
 Toast.fail = createMethod('fail')
+Toast.success = createMethod('success')
 Toast.offline = createMethod('offline')
 Toast.loading = createMethod('loading')
 Toast.hide = () => {

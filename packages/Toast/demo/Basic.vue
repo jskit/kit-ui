@@ -54,13 +54,13 @@ export default {
   computed: {},
   mounted: function () {
     console.log('mounted')
-    Toast.loading('Loading...', 6000, () => {
+    Toast.loading('Loading...', 2, () => {
       console.log('Load complete !!!')
     })
 
-    setTimeout(() => {
-      Toast.hide()
-    }, 3000)
+    // setTimeout(() => {
+    //   Toast.hide()
+    // }, 2000)
   },
 
   methods: {
@@ -89,7 +89,7 @@ export default {
       Toast.offline('Network connection failed !!!')
     },
     loadingToast() {
-      Toast.loading('Loading...', () => {
+      Toast.loading('Loading...', 1, () => {
         console.log('Load complete !!!')
       })
     },

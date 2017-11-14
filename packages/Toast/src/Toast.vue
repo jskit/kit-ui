@@ -44,6 +44,7 @@ export default {
     ]).def('text'),
     message: String,
     mask: PropTypes.bool,
+    onClose: PropTypes.func,
   },
 
   data() {
