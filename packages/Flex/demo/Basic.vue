@@ -232,6 +232,7 @@
 <script>
 import Vue from 'vue'
 import { Row, Col, FlexItem } from '../../Flex'
+
 Vue.component('WhiteSpace', {
   template: '<div style="height: 10px;"></div>',
 })
@@ -256,15 +257,15 @@ export default {
     [Col.name]: Col,
     [FlexItem.name]: FlexItem,
   },
-  data: function () {
+  data() {
     return {
     }
   },
   computed: {},
-  ready: function () {
+  ready() {
     console.log(111)
   },
-  attached: function () {},
+  attached() {},
   methods: {},
 }
 </script>
@@ -346,14 +347,6 @@ export default {
 }
 
 /* OTHER STYLES */
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-}
 
 [class$="face"] {
   margin: 16px;

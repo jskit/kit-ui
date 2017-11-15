@@ -149,7 +149,7 @@ body {
     flex: 1;
 
   .link-arrow
-    padding-right: 8px;
+    margin-right: 8px;
     position: relative;
 
     &:after
