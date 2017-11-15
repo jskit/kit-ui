@@ -11,8 +11,8 @@ const defaultOptions = {
   mask: true,
   // 不要使用箭头函数，会改变作用域
   clear: function clear() {
-    instance.visible = false
-    this.onClose()
+    instance.visible = false;
+    (this.onClose || noop)()
   },
   onClose: function onClose() {
     // 回调
@@ -58,7 +58,7 @@ const Toast = (options = {}, duration = 2, onClose = noop, mask = true) => {
   return instance
 }
 
-const createMethod = type => {
+const createMethod = (type) => {
   return (options = {}, duration = 2, onClose = noop, mask = true) => {
     if (typeof options === 'string') {
       options = {

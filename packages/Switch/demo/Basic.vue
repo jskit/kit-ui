@@ -94,7 +94,7 @@ export default {
   .switch-core{
     width: 64px;
     .switch-text{
-      font-size: 30px;
+      font-size: 16px;
       transform: translateX(-2px);
     }
   }

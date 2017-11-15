@@ -10,13 +10,13 @@ let routes = []
 // 目前export default .js导出引用不友好，部分场景需特殊处理
 // 子路由推荐使用数组格式(支持多模板)
 const reqModules = require.context('../views', true, /^\.(\/([\s\S])+)?\/route\.js$/)
-console.log(reqModules.keys())
+// console.log(reqModules.keys())
 reqModules.keys().map((key) => {
   const route = reqModules(key).default || reqModules(key)
   routes = routes.concat(route)
   return route
 })
-console.log(routes)
+// console.log(routes)
 
 const router = new Router({
   mode: 'hash',
