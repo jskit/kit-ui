@@ -11,6 +11,7 @@ import Icon from './Icon'
 import Layout from './Layout'
 import Lazyload from './Lazyload'
 import Loading from './Loading'
+import Notification from './Notification'
 import Page from './Page'
 import QrCode from './QrCode'
 import Spin from './Spin'
@@ -32,6 +33,7 @@ const packages = {
   Layout,
   Lazyload,
   Loading,
+  Notification,
   Page,
   QrCode,
   Spin,
@@ -71,6 +73,7 @@ export {
   Layout,
   Lazyload,
   Loading,
+  Notification,
   Page,
   QrCode,
   Spin,
