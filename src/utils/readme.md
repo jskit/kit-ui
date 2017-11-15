@@ -1,3 +1,15 @@
+关于请求数据
+
+请求数据封装接口要保持一致的使用方式
+
+## fetch
+
+底层使用 fetch，通过 request 处理API
+
+## xhr
+
+底层使用 axios，基于 xhr 请求数据，通过 xhr 文件 处理 api
+
 /**
 
 https://github.com/mzabriskie/axios

@@ -540,6 +540,46 @@ export const components = [
   },
 ]
 
+export const api = [
+  {
+    title: '开放接口',
+    icon: 'feedback',
+    // list: [
+    //   {
+    //     icon: '',
+    //     path: 'layout',
+    //     title: 'layout 布局排版',
+    //     desc: '',
+    //     status: 'doing',
+    //   },
+    // ],
+  },
+  {
+    title: '界面',
+    icon: 'page',
+  },
+  {
+    title: '设备',
+    icon: 'device',
+  },
+  {
+    title: '网络',
+    icon: 'network',
+  },
+  {
+    title: '媒体',
+    icon: 'media',
+  },
+  {
+    title: '位置',
+    icon: 'location',
+  },
+  {
+    title: '数据',
+    icon: 'business',
+  },
+]
+
 export const language = {
   'zh-cn': {
     home: '/',

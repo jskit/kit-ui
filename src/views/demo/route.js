@@ -1,5 +1,5 @@
 import { camelCase, upperFirst } from 'lodash'
-import { components } from '@/config/docs'
+import { components, api } from '@/config/docs'
 
 function lazyLoad(page) {
   return () => import(/* webpackChunkName: "demo" */ `./${page}`)
@@ -19,32 +19,34 @@ const isComming = {
 
 const registerRoute = (list) => {
   const routes = []
-  list.map(item => item.list.map((page) => {
-    const path = upperFirst(camelCase(page.path))
-    const isPackage = page.status !== 'todo'
+  list.map((item) => {
+    return !item.list ? [] : item.list.map((page) => {
+      const path = upperFirst(camelCase(page.path))
+      const isPackage = page.status !== 'todo'
 
-    routes.push({
-      name: `demo/${page.path}`,
-      path: `${page.path}`,
-      component: isPackage ? () => import(`@root/packages/${path}/demo/Basic`) : isComming,
-      meta: {
-        title: page.title,
-        desc: page.desc,
-        status: !isPackage ? -1 : 0, // 组件状态为 -1 不允许加载
-      },
+      routes.push({
+        name: `demo/${page.path}`,
+        path: `${page.path}`,
+        component: isPackage ? () => import(`@root/packages/${path}/demo/Basic`) : isComming,
+        meta: {
+          title: page.title,
+          desc: page.desc,
+          status: !isPackage ? -1 : 0, // 组件状态为 -1 不允许加载
+        },
+      })
+      // 这里没法每个组件去设置，还是期望有个顶级方法
+      // pack.component.beforeRouteEnter = function (to, from, next) {
+      //   // 路由导航守卫
+      //   console.log(to)
+      //   next(!isPackage)
+      // }
+      return false
     })
-    // 这里没法每个组件去设置，还是期望有个顶级方法
-    // pack.component.beforeRouteEnter = function (to, from, next) {
-    //   // 路由导航守卫
-    //   console.log(to)
-    //   next(!isPackage)
-    // }
-    return false
-  }))
+  })
   return routes
 }
 
-export default {
+export default [{
   // 使用默认子路由，则父路由的 name 就得去掉
   // 否则使用 `:to="{name: 'demo'"` 会导致默认子路由不会render
   path: '/demo',
@@ -52,12 +54,20 @@ export default {
   children: [
     {
       path: '/',
-      alias: '/index',
+      alias: 'component',
       name: 'demo',
       meta: {
         title: 'Demo 示例',
       },
       component: Index,
+    },
+    {
+      path: 'api',
+      name: 'api',
+      meta: {
+        title: 'Api 接口',
+      },
+      component: lazyLoad('api'),
     },
     {
       path: 'z-index',
@@ -68,6 +78,7 @@ export default {
       },
     },
     ...registerRoute(components),
+    ...registerRoute(api),
     { path: '*', component: isComming },
   ],
-}
+}]
