@@ -42,6 +42,7 @@ import { components } from '@/config/docs'
 import Icon from '@root/packages/Icon'
 import Toast from '@root/packages/Toast'
 import { camelCase, upperFirst } from '@/utils'
+
 const typeMap = {
   todo: 'cross',
   doing: 'warning-circle-o',
@@ -62,7 +63,7 @@ const listMap = {
   layer: load('z-index'),
 }
 
-components.forEach(item => {
+components.forEach((item) => {
   item.open = false
 })
 
@@ -83,7 +84,7 @@ export default {
 
   data() {
     return {
-      listMap: listMap,
+      listMap,
       list: components,
       desc: '以下为组件 demo 示例，样式仅供参考，开发者可根据自身需求自定义组件样式，具体属性参数详见开发文档。',
     }
@@ -127,9 +128,9 @@ export default {
 
       const target = $event.currentTarget
       const status = target.getAttribute('data-status')
-      if(status === 'todo') {
+      if (status === 'todo') {
         Toast('开发未完成', 1000, null, false)
-        return
+        return false
       }
     },
   },

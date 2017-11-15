@@ -1,4 +1,10 @@
 
+/* eslint wrap-iife: 0 */
+/* eslint no-var: 0 */
+/* eslint no-underscore-dangle: 0 */
+/* eslint semi-style: 0 */
+/* eslint func-names: 0 */
+/* eslint vars-on-top: 0 */
 var _hmt = _hmt || []
 ;(function () {
   window._hmt = window._hmt || _hmt
@@ -12,6 +18,6 @@ var _hmt = _hmt || []
 })()
 
 export default {
-  'googleAnalyticsId': 'UA-XXXXX-X',
-  'baiduAnalyticsId': 'UA-XXXXX-X',
+  googleAnalyticsId: 'UA-XXXXX-X',
+  baiduAnalyticsId: 'UA-XXXXX-X',
 }

@@ -1,4 +1,3 @@
-
 import { camelCase, upperFirst } from 'lodash'
 // import packages from '@root/packages'
 import { components } from '@/config/docs'
@@ -20,23 +19,21 @@ const Index = () => import(/* webpackChunkName: "docs" */ `@root/README.md`)
 
 const registerRoute = (list) => {
   const routes = []
-  list.map(item =>
-    item.list.map((page) => {
-      const path = upperFirst(camelCase(page.path))
-      // const isPackage = packages.indexOf(path) > -1
-      const isPackage = page.status !== 'todo'
-      routes.push({
-        name: `component/${page.path}`,
-        path: `${page.path}`,
-        component: isPackage ? () => import(`@root/packages/${path}/readme.md`) : isComming,
-        meta: {
-          title: page.title,
-          desc: page.desc,
-        },
-      })
-      return false
+  list.map(item => item.list.map((page) => {
+    const path = upperFirst(camelCase(page.path))
+    // const isPackage = packages.indexOf(path) > -1
+    const isPackage = page.status !== 'todo'
+    routes.push({
+      name: `component/${page.path}`,
+      path: `${page.path}`,
+      component: isPackage ? () => import(`@root/packages/${path}/readme.md`) : isComming,
+      meta: {
+        title: page.title,
+        desc: page.desc,
+      },
     })
-  )
+    return false
+  }))
 
   return routes
 }

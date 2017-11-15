@@ -7,6 +7,7 @@
 
 <script>
 import vHeader from '@/components/vHeader'
+
 export default {
   name: 'tpl-default',
 

@@ -9,6 +9,7 @@
 <script>
 import { map } from 'lodash'
 import configDocs from '@/config/docs'
+
 const docs = map(configDocs.nav[0].groups[0].list, 'path')
 export default {
   name: 'tpl-docs',
@@ -35,7 +36,7 @@ export default {
   },
 
   watch: {
-    '$route'(to, from) {
+    $route(to, from) {
       // 默认使用 'slide-left' 如果使用的是 back（暂判断不出来），也使用 slide-left
       const toDepth = to.path.split('/').length
       const fromDepth = from.path.split('/').length

@@ -1,4 +1,3 @@
-
 import { camelCase, upperFirst } from 'lodash'
 import { components } from '@/config/docs'
 
@@ -20,31 +19,28 @@ const isComming = {
 
 const registerRoute = (list) => {
   const routes = []
-  list.map(item =>
-    item.list.map((page) => {
-      const path = upperFirst(camelCase(page.path))
-      const isPackage = page.status !== 'todo'
+  list.map(item => item.list.map((page) => {
+    const path = upperFirst(camelCase(page.path))
+    const isPackage = page.status !== 'todo'
 
-      routes.push({
-        name: `demo/${page.path}`,
-        path: `${page.path}`,
-        component: isPackage ? () => import(`@root/packages/${path}/demo/Basic`) : isComming,
-        meta: {
-          title: page.title,
-          desc: page.desc,
-          status: !isPackage ? -1 : 0, // 组件状态为 -1 不允许加载
-        },
-      })
-      // 这里没法每个组件去设置，还是期望有个顶级方法
-      // pack.component.beforeRouteEnter = function (to, from, next) {
-      //   // 路由导航守卫
-      //   console.log(to)
-      //   next(!isPackage)
-      // }
-      return false
+    routes.push({
+      name: `demo/${page.path}`,
+      path: `${page.path}`,
+      component: isPackage ? () => import(`@root/packages/${path}/demo/Basic`) : isComming,
+      meta: {
+        title: page.title,
+        desc: page.desc,
+        status: !isPackage ? -1 : 0, // 组件状态为 -1 不允许加载
+      },
     })
-  )
-
+    // 这里没法每个组件去设置，还是期望有个顶级方法
+    // pack.component.beforeRouteEnter = function (to, from, next) {
+    //   // 路由导航守卫
+    //   console.log(to)
+    //   next(!isPackage)
+    // }
+    return false
+  }))
   return routes
 }
 

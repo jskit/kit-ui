@@ -3,9 +3,10 @@
  * Create a cached version of a pure function.
  */
 export function cached(fn) {
-  var cache = Object.create(null)
+  const cache = Object.create(null)
   return function cachedFn (str) {
-    var hit = cache[str]
+    const hit = cache[str]
+    /* eslint no-return-assign: 0 */
     return hit || (cache[str] = fn(str))
   }
 }
@@ -17,8 +18,9 @@ export function cached(fn) {
  * Camelize a hyphen-delimited string.
  * camelCase 小驼峰命名
  */
-var camelizeRE = /-(\w)/g
-var camelize = cached(function (str) {
+const camelizeRE = /-(\w)/g
+const camelize = cached(function (str) {
+  /* eslint func-names: 0 */
   return str.replace(camelizeRE, function (_, c) { return c ? c.toUpperCase() : '' })
 })
 
@@ -26,7 +28,7 @@ var camelize = cached(function (str) {
  * Converts the first character of string to upper case.
  * 首字母大写
  */
-var capitalize = cached(function (str) {
+const capitalize = cached(function (str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 })
 
@@ -34,7 +36,7 @@ var capitalize = cached(function (str) {
  * Hyphenate a camelCase string.
  * kebabCase 连字符命名 eg: kebab-case
  */
-var hyphenateRE = /\B([A-Z])/g
+const hyphenateRE = /\B([A-Z])/g
 export const hyphenate = cached(function (str) {
   return str.replace(hyphenateRE, '-$1').toLowerCase()
 })
@@ -44,6 +46,10 @@ export const kebabCase = hyphenate
 export const camelCase = camelize
 
 export function merge(target) {
+  /* eslint no-plusplus: 0 */
+  /* eslint prefer-rest-params: 0 */
+  /* eslint no-prototype-builtins: 0 */
+  /* eslint no-param-reassign: 0 */
   for (let i = 1, j = arguments.length; i < j; i++) {
     const source = arguments[i] || {}
     for (const prop in source) {

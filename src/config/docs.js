@@ -551,16 +551,16 @@ export const language = {
 }
 export default {
   header: {
-    '首页': '/',
-    '文档': '/#/docs',
-    '组件': '/#/component',
-    '小程序': '/#/kit-app',
+    首页: '/',
+    文档: '/#/docs',
+    组件: '/#/component',
+    小程序: '/#/kit-app',
   },
   footer: {
     github: 'https://github.com/jskit/kit-ui',
     nav: {
-      '加入我们': 'https://github.com/jskit',
-      '意见反馈': 'https://github.com/jskit/kit-ui/issues',
+      加入我们: 'https://github.com/jskit',
+      意见反馈: 'https://github.com/jskit/kit-ui/issues',
     },
   },
   navBase: '/component',

@@ -8,7 +8,7 @@ Vue.use(Router)
 // https://webpack.js.org/guides/dependency-management/#require-context
 // 目前export default .js导出引用不友好，部分场景需特殊处理
 const reqModules = require.context('../views', true, /^\.(\/([\s\S])+)?\/route\.js$/)
-const routes = reqModules.keys().map(key => {
+const routes = reqModules.keys().map((key) => {
   return reqModules(key).default || reqModules(key)
 }, {})
 
@@ -28,9 +28,8 @@ const router = new Router({
   routes,
 })
 
-// const loginRouteName = 'login'
-const loginPath = '/login'
-const loggedIn = false
+const loginRouteName = 'login'
+// const loginPath = '/login'
 router.beforeEach((to, from, next) => {
   const {
     meta = {},
@@ -49,12 +48,11 @@ router.beforeEach((to, from, next) => {
   // const { logged = false } = store.state
   const logged = false
 
-  if (needAuth && loggedIn && to.path !== loginRouteName) {
+  if (needAuth && logged && to.path !== loginRouteName) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
     return next({
-      // name: loginRouteName,
-      path: loginPath,
+      name: loginRouteName,
       query: { redirect: to.fullPath },
     })
   }

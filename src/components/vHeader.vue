@@ -14,6 +14,7 @@
 
 <script>
 import Button from '../../packages/Button'
+
 export default {
   name: 'v-header',
 
