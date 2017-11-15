@@ -43,7 +43,7 @@ const packages = {
   XHeader,
 }
 
-const install = function (Vue, opts = {}) {
+const install = function install(Vue, opts = {}) {
   if (install.installed) return
   Object.keys(packages).forEach((key) => {
     const item = packages[key]
