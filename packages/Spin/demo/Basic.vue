@@ -43,6 +43,7 @@ import Group from '../../Group'
 import Spin from '../../Spin'
 import Switch from '../../Switch'
 import Alert from '../../Alert'
+
 export default {
   components: {
     [Page.name]: Page,
@@ -51,16 +52,16 @@ export default {
     [Alert.name]: Alert,
     [Switch.name]: Switch,
   },
-  data: function () {
+  data() {
     return {
       spinning: false,
     }
   },
   computed: {},
-  ready: function () {
+  ready() {
     console.log(111)
   },
-  attached: function () {},
+  attached() {},
   methods: {},
 }
 </script>

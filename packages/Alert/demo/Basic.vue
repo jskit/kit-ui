@@ -67,16 +67,16 @@ export default {
   components: {
     [Alert.name]: Alert,
   },
-  data: function () {
+  data() {
     return {
     }
   },
   computed: {
   },
-  ready: function () {
+  ready() {
     console.log(111)
   },
-  attached: function () {},
+  attached() {},
   methods: {
     onClose(e, el) {
       console.log(e, 'I was closed.')

@@ -40,9 +40,16 @@
 
 <script>
 import Layout from '../'
-const { VHeader, VFooter, VSider, VContent } = Layout
+
+const {
+  VHeader,
+  VFooter,
+  VSider,
+  VContent,
+} = Layout
+
 export default {
-  data: function () {
+  data() {
     return {
     }
   },
@@ -57,7 +64,7 @@ export default {
     debugger
     console.log(111)
   },
-  attached: function () {},
+  attached() {},
   methods: {},
 }
 </script>

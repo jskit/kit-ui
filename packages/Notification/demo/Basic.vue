@@ -11,15 +11,15 @@
 <script>
 export default {
   components: {},
-  data: function () {
+  data() {
     return {
     }
   },
   computed: {},
-  ready: function () {
+  ready() {
     console.log(111)
   },
-  attached: function () {},
+  attached() {},
   methods: {},
 }
 </script>

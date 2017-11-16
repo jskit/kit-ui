@@ -62,7 +62,7 @@ export default {
     ]).def('circle'),
   },
 
-  ready: function () {
+  ready() {
     console.log(this.text)
   },
 

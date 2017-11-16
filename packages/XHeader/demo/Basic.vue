@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {
       title: '标题',
       header: {
@@ -51,10 +51,10 @@ export default {
   },
   components: {},
   computed: {},
-  ready: function () {
+  ready() {
     console.log(111)
   },
-  attached: function () {},
+  attached() {},
   methods: {
     // header: function(){
     //   return this.header1;

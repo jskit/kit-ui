@@ -5,7 +5,7 @@
 <script>
 export default {
   name: 'XTitle',
-  data: function () {
+  data() {
     return {
       title: '标题',
     }

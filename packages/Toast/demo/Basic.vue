@@ -47,7 +47,7 @@ export default {
   components: {
     [Button.name]: Button,
   },
-  data: function () {
+  data() {
     return {
     }
   },

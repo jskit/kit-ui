@@ -15,6 +15,7 @@
  * <Abc>xxx</Abc>
  */
 import PropTypes from 'vue-types'
+
 export default {
   name: 'KitAbc',
 

@@ -53,13 +53,13 @@ export const components = [
         desc: '',
         status: 'done',
       },
-      // {
-      //   icon: '',
-      //   path: 'tag',
-      //   title: 'tag 标签',
-      //   desc: '',
-      //   status: 'todo',
-      // },
+      {
+        icon: '',
+        path: 'tag',
+        title: 'tag 标签',
+        desc: '',
+        status: 'todo',
+      },
       {
         icon: '',
         path: 'card',
@@ -95,13 +95,13 @@ export const components = [
         desc: '',
         status: 'todo',
       },
-      // {
-      //   icon: '',
-      //   path: 'lazyload',
-      //   title: 'lazyload 图片懒加载',
-      //   desc: '',
-      //   status: 'doing',
-      // },
+      {
+        icon: '',
+        path: 'lazyload',
+        title: 'lazyload 图片懒加载',
+        desc: '',
+        status: 'todo',
+      },
       {
         icon: '',
         path: 'loading',
@@ -144,6 +144,20 @@ export const components = [
         desc: '',
         status: 'todo',
       },
+      {
+        icon: '',
+        path: 'swiper',
+        title: 'swiper 轮播图',
+        desc: '',
+        status: 'doing',
+      },
+      {
+        icon: '',
+        path: 'waterfall',
+        title: 'waterfall 瀑布流',
+        desc: '',
+        status: 'todo',
+      },
     ],
   },
   {
@@ -173,8 +187,8 @@ export const components = [
       },
       {
         icon: '',
-        path: 'tool-bar',
-        title: 'ToolBar 工具条',
+        path: 'tab-bar',
+        title: 'TabBar 标签栏',
         desc: '',
         status: 'todo',
       },

@@ -30,9 +30,9 @@ export default {
 // html,
 // body,
 // #app,
-// .transition-box {
-//   height: 100%;
-// }
+.transition-box {
+  height: 100%;
+}
 body {
   min-width: initial;
   width: 100%;
@@ -75,14 +75,15 @@ body {
 .index-desc
   margin-top: 8px
   color: #888
-  font-size: 13px
+  font-size: 14px
 
 .kind-list
   .item
-    margin: 10px 0
+    margin: 16px 0
     border-radius: 2px
     overflow: hidden
     background-color: #fff
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10)
 
     &:first-child
       margin-top: 0;
