@@ -20,6 +20,11 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body,
 button,
 input,
@@ -27,11 +32,6 @@ select,
 textarea {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-}
-
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 // HTML & Body reset

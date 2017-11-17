@@ -25,6 +25,14 @@ export default {
       String,
       Number,
     ]),
+    name: PropTypes.string.isRequired,
+    age: PropTypes.integer, // 整数
+    obj: PropTypes.object,
+    navItem: PropTypes.shape({
+      id: PropTypes.integer.isRequired,
+      icon: String,
+      title: String,
+    }),
     max: PropTypes.number.def(99),
     show: PropTypes.bool,
     dot: Boolean,

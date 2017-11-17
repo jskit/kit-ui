@@ -11,13 +11,13 @@
       <br>
       <KitBadge text="12" />
       <KitBadge color="#87d068" text="123" :max="99" />
-      <KitBadge status="done" text="1201" :max="999" :style="{borderRadius: '2px'}" />
+      <KitBadge status="done" text="1201" :max="999" />
       <KitBadge status="todo" text="..." />
       <KitBadge status="doing" text="券" shape="radius" />
       <br>
-      <KitBadge text="5" :style="{backgroundColor: '#fff', color: '#999999', border: '1px solid #d9d9d9'}" />
-      <KitBadge style="color: red; background: #fff; border: 1px solid #d9d9d9;" text="自动缴费" />
-      <KitBadge status="done" :style="{backgroundColor: '#fff', color: '#f19736', border: '1px solid #f19736', borderRadius: '2px'}" text="自动缴费" />
+      <KitBadge text="5" />
+      <KitBadge text="自动缴费" />
+      <KitBadge status="done" text="自动缴费" />
       <br>
       <KitBadge color="blue" text="自定义背景色" />
       <KitBadge textColor="yellow" text="自定义颜色" />
@@ -41,18 +41,21 @@
       <div class="group-header">未读数红点跟在主题信息后，统一在列表左侧</div>
       <div class="list">
         <KitCell title="社交中的群消息通知" desc="当用户只需知道大致有内容更新时，应该使用红点型">
-          <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <KitBadge slot="badge" v-show="isShow" text="3" dot />
+          <KitBadge slot="icon" :hidden="!isShow" text="3" dot>
+            <svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
+          </KitBadge>
           <span><KitSwitch v-model="isShow"></KitSwitch></span>
         </KitCell>
-        <KitCell title="社交中的一对一的消息通知" desc="当用户有必要知晓每条更新时，应该使用数字型">
-          <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <KitBadge slot="badge" text="6" />
+        <KitCell slot="icon" title="社交中的一对一的消息通知" desc="当用户有必要知晓每条更新时，应该使用数字型">
+          <KitBadge slot="icon" text="6">
+            <svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
+          </KitBadge>
           <KitBadge text="NEW" />
         </KitCell>
         <KitCell title="超出99" desc="数字显示可以设定上限 max，默认99">
-          <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <KitBadge slot="badge" text="100" :max="99" />
+          <KitBadge slot="icon" text="100" :max="99">
+            <svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
+          </KitBadge>
           <span>加减操作</span>
         </KitCell>
       </div>

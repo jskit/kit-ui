@@ -40,22 +40,73 @@ badgeColor($bg = $badge-bg, $color = $badge-color, $radius = $badge-radius) {
 // 核心实现，每个属性的设置都要明白为什么
 
 .{$ns}badge {
-  line-height: 1;
-  white-space: nowrap;
-  display: inline-block;
-  cursor: default;
-  // min-width: 1.5rem; // 注释此行，就可以支持点样式，且默认会是圆
-  text-align: center;
+  position: relative;
+  display: inline-flex;
+  align-content: center;
+  justify-content: center;
 
-  badgeSize();
-  badgeColor();
+  &-text {
+    line-height: 1;
+    white-space: nowrap;
+    display: inline-block;
+    cursor: default;
+    // min-width: 1.5rem; // 注释此行，就可以支持点样式，且默认会是圆
+    text-align: center;
+
+    badgeSize();
+    badgeColor();
+
+    &.is-circle {
+      border-radius: 400px;
+    }
+    &.is-radius {
+      border-radius: 2px;
+    }
+    &.is-square {
+      border-radius: 0;
+    }
+
+    &:empty,
+    &.is-dot {
+
+      padding: 4px;
+      min-width: initial;
+      border-radius: $global-round;
+      font-size: 0;
+      width: 0;
+      height: 0;
+    }
+  }
 }
 
 // 扩展样式（主题、形状、尺寸等）
 // -----------------------------------------------------------------------------
 for $color-key, $color in $theme-colors {
   .{$ns}badge-{$color-key} {
-    badgeColor($color, auto);
+    .{$ns}badge-text {
+      badgeColor($color, auto);
+    }
+  }
+}
+
+.cell .cell-media {
+  .badge-text {
+    position: absolute;
+    top: 0;
+    right: 0;// ($spacer / 2);
+    // right: ($spacer / 2);
+    // right: 10px;
+    // 定位 采用右对齐(向上偏移 40%)
+    // transform: translate(8), -40%px;
+    // 使用百分数时，在控制点样式显示隐藏时，会影响其他 badge 样式的高度瞬间被剪切的微小抖动
+    transform: translate(8px, -8px);
+    margin: 0;
+
+    &.is-dot{
+      // 定位 采用右对齐(向右偏移100%——自身宽度)
+      // transform: translate(40%, -40%);
+      transform: translate(3px, -3px);
+    }
   }
 }
 
@@ -65,15 +116,3 @@ for $color-key, $color in $theme-colors {
 //     border-radius: $shape-value;
 //   }
 // }
-
-// 特殊处理
-.{$ns}badge:empty,
-.{$ns}badge.is-dot {
-  padding: 4px;
-  min-width: initial;
-  border-radius: $global-round;
-  font-size: 0;
-  width: 0;
-  height: 0;
-}
-

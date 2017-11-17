@@ -11,7 +11,6 @@
         <slot name="icon" class="media">
           <i v-if="icon" class="media iconfont" :class="'icon-' + icon"></i>
         </slot>
-        <slot name="badge"></slot>
       </div>
       <div class="cell-content">
         <div class="cell-title">

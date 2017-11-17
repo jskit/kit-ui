@@ -44,14 +44,14 @@ export const components = [
         path: 'icon',
         title: 'icon 图标',
         desc: '',
-        status: 'done',
+        status: 'doing',
       },
       {
         icon: '',
         path: 'badge',
         title: 'badge 徽标',
         desc: '',
-        status: 'done',
+        status: 'doing',
       },
       {
         icon: '',
@@ -174,9 +174,9 @@ export const components = [
       {
         icon: '',
         path: 'nav-bar',
-        title: 'NavBar 导航条',
+        title: 'NavBar 导航栏',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',

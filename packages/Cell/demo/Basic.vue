@@ -17,8 +17,9 @@
           <span>icon 是图片</span>
         </KitCell>
         <KitCell title="标题文字" desc="摘要信息">
-          <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <KitBadge slot="badge" color="red" text="8"></KitBadge>
+          <KitBadge slot="icon" color="red" text="8">
+            <svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
+          </KitBadge>
           <span>带 badge</span>
           <KitBadge color="#f60" textColor="#fff" text="28"></KitBadge>
         </KitCell>

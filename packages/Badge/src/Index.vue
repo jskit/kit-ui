@@ -1,10 +1,13 @@
 <template>
-  <span
-    :class="classes"
-    :style="styles"
-    v-show="!hidden && text"
-    >
-    <span v-if="text" class="badge-text">{{badgeText}}</span>
+  <span class="badge">
+    <slot></slot>
+    <sup
+      v-if="text"
+      v-show="!hidden && text"
+      :class="classes"
+      :style="styles"
+      @click="onClick"
+    >{{badgeText}}</sup>
   </span>
 </template>
 
@@ -13,6 +16,7 @@
  * Badge 徽章
  * @module packages/Badge
  * @desc 图标右上角的红点、数字或者文字。用于告知用户，该区域的状态变化或者待处理任务的数量。
+ * TODO: 实现应该使用外层包裹，何处引用简单一包裹，直接定位 OK，不必再去定位了
  * @rules
  *   - 当用户有必要知晓每条更新时，应该使用数字型，eg：社交中的一对一的消息通知。
  *   - 当用户只需知道大致有内容更新时，应该使用红点型，eg：社交中的群消息通知。
@@ -37,6 +41,7 @@
 **/
 
 import PropTypes from 'vue-types'
+
 export default {
   name: 'KitBadge',
 
@@ -62,6 +67,13 @@ export default {
     ]).def('circle'),
   },
 
+  beforeCreate() {
+    if (!this.$parent.badges) {
+      this.$parent.badges = []
+    }
+    this.$parent.badges.push(this)
+  },
+
   ready() {
     console.log(this.text)
   },
@@ -80,7 +92,7 @@ export default {
       // text 展示的数字或文案，当为数字时候，大于 max 时显示为 ${max}+，为 0 时隐藏
       // return (typeof text === 'number' && text > max) ? `${max}+` : text;
       // /* eslint no-self-compare: 0 */
-      return (!isNaN(textNum) && text > overflowCount) ? `${overflowCount}+` : text
+      return (!Number.isNaN(textNum) && text > overflowCount) ? `${overflowCount}+` : text
     },
     styles () {
       return [
@@ -89,14 +101,27 @@ export default {
       ]
     },
     classes () {
-      const { prefixCls, status, shape, dot } = this.$props
+      const parent = this.$parent
+      const {
+        prefixCls,
+        status,
+        shape,
+        dot,
+      } = this.$props
       return {
-        [`${prefixCls}`]: true,
+        [`${prefixCls}-text`]: true,
         'is-dot': dot,
         // 'badge-single': this.text && this.text.length === 1,
         [`${prefixCls}-${status}`]: status,
         [`is-${shape}`]: !dot && shape,
+        [`is-selected`]: parent.badges.indexOf(this) === parent.activeKey,
       }
+    },
+  },
+
+  methods: {
+    onClick() {
+      this.$emit('click', this.$parent.badges.indexOf(this))
     },
   },
 }
@@ -111,7 +136,7 @@ export default {
 //   }
 // }
 //
-.badge-todo  { color: #fff; background: $color-info; }
-.badge-doing { color: #fff; background: $color-warning;}
-.badge-done  { color: #fff; background: $color-success; }
+.badge-todo  .badge-text { color: #fff; background: $color-info; }
+.badge-doing .badge-text { color: #fff; background: $color-warning;}
+.badge-done  .badge-text { color: #fff; background: $color-success; }
 </style>

@@ -159,25 +159,6 @@
       margin-right: ($spacer / 2);
     }
 
-    .badge{
-      position: absolute;
-      top: 0;
-      right: ($spacer / 2);
-      // right: ($spacer / 2);
-      // right: 10px;
-      // 定位 采用右对齐(向上偏移 40%)
-      // transform: translate(8), -40%px;
-      // 使用百分数时，在控制点样式显示隐藏时，会影响其他 badge 样式的高度瞬间被剪切的微小抖动
-      transform: translate(8px, -8px);
-      margin: 0;
-    }
-
-    .badge.is-dot{
-      // 定位 采用右对齐(向右偏移100%——自身宽度)
-      // transform: translate(40%, -40%);
-      transform: translate(3px, -3px);
-    }
-
     &:empty{
       display: none;
     }

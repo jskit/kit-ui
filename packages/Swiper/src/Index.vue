@@ -1,5 +1,8 @@
 <template>
-  <div class="kit-swiper" :style="styles">
+  <div
+    class="kit-swiper"
+    :style="styles"
+  >
     <div class="kit-swiper__items">
       <slot></slot>
     </div>

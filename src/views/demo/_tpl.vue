@@ -14,6 +14,11 @@ export default {
       transition: 'slide-left',
     }
   },
+
+  created() {
+    document.body.classList += 'kit-app-body'
+  },
+
   // watch $route 决定使用哪种过渡
   watch: {
     $route(to, from) {
@@ -32,14 +37,10 @@ export default {
 // #app,
 .transition-box {
   height: 100%;
+  position: absolute;
 }
-body {
-  min-width: initial;
-  width: 100%;
-}
+
 .tpl-demo {
-  font-size: 16px;
-  line-height: 1.6;
 
   .indexicon {
     font-size: 22px;

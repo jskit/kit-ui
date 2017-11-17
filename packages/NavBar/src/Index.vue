@@ -1,12 +1,12 @@
 <template>
   <header
-    class="x-header"
+    class="navbar"
     :class="classes"
   >
-    <div class="x-header-left">
+    <div class="navbar-left">
       <slot name="left">
         <template v-if="header.left">
-          <XHeaderItem
+          <KitNavBarItem
             v-for="item in header.left"
             :text="item.text"
             :link="item.link"
@@ -19,16 +19,16 @@
         </template>
       </slot>
     </div>
-    <div class="x-header-center">
+    <div class="navbar-center">
       <slot>
-        <div class="x-header-title" v-text="title"></div>
-        <div class="x-header-subtitle" v-if="subTitle" v-text="subTitle"></div>
+        <div class="navbar-title" v-text="title"></div>
+        <div class="navbar-subtitle" v-if="subTitle" v-text="subTitle"></div>
       </slot>
     </div>
-    <div class="x-header-right">
+    <div class="navbar-right">
       <slot name="right">
         <template v-if="header.right">
-          <XHeaderItem
+          <KitNavBarItem
             v-for="item in header.right"
             :text="item.text"
             :link="item.link"
@@ -45,9 +45,6 @@
 </template>
 
 <script>
-
-import XHeaderItem from './XHeaderItem.vue'
-
 /**
  * XHeader
  * @module packages/XHeader
@@ -64,7 +61,8 @@ import XHeaderItem from './XHeaderItem.vue'
  *   <div solt="right"></div>
  * </XHeader>
  */
-import PropTypes from 'vue-types'
+// import PropTypes from 'vue-types'
+import Item from './Item.vue'
 
 const defaultHeaderData = {
   left: [
@@ -81,10 +79,10 @@ const defaultHeaderData = {
 }
 
 export default {
-  name: 'XHeader',
+  name: 'KitNavBar',
 
   components: {
-    XHeaderItem,
+    [Item.name]: Item,
   },
 
   props: {
@@ -116,72 +114,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@import "../../style/fn";
-/* @modifier 角色  @descendent 下级元素  @when 状态 */
-/* 如果使用扩展，就要支持并写 @modifier left,@modifier right{} */
-.x-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff;
-  height: 44px;
+@import "./style";
 
-  &.line-bottom {
-    // @extend line1px()
-  }
-
-  &.is-fixed {
-    position: fixed;
-    z-index: 10;
-  }
-  &-center {
-    margin: 0 10px;
-    align-items: center;
-    overflow: hidden;
-    text-align: center;
-  }
-  &-left,
-  &-right {
-    width: 88px;
-    overflow: hidden;
-    // background: #eee;
-    flex-shrink: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    &::before {
-      content: '';
-      width: 4px;
-    }
-  }
-  &-right {
-    justify-content: flex-end;
-    // flex-direction: row-reverse;
-  }
-  &-item {
-    width: 42px;
-    // background: #ccc;
-    text-align: center;
-    line-height: 42px;
-    text-decoration: none;
-  }
-  &-title,
-  &-subtitle {
-    textOverflow()
-    font-size: inherit;
-    font-weight: normal;
-    font-size: 16px;
-    text-decoration: none;
-  }
-  &-subtitle {
-    margin-top: -2px;
-    font-size: 12px;
-  }
-}
 </style>

@@ -1,13 +1,17 @@
 <template>
-  <router-link
-    class="x-header-item"
-    :to="link"
+  <a
+    class="navbar-item"
+    :href="link"
+    :tag="tag"
     @click="handleClick($event)"
-    :tag="tag">
+  >
     <i v-if="icon" :class="['iconfont', `icon-${icon}`]"></i>
-    <Badge :status="status"></Badge>
-    <span class="text" v-if="text" v-text="text"></span>
-  </router-link>
+    <span
+      class="navbar-item-text"
+      v-if="text"
+      v-text="text"
+    ></span>
+  </a>
 </template>
 
 <script>
@@ -29,14 +33,9 @@ const noop = () => {}
 // import PropTypes from 'vue-types'
 
 export default {
-  name: 'XHeaderItem',
+  name: 'KitNavBarItem',
 
   props: {
-    // navItem: PropTypes.shape({
-    //   id: PropTypes.integer.isRequired,
-    //   icon: String,
-    //   title: String,
-    // }),
     link: String,
     tag: String,
     icon: String,
@@ -62,9 +61,8 @@ export default {
   methods: {
     handleClick(e) {
       e.preventDefault()
-      debugger
       const fn = this.callback || noop
-      return fn.bind($event)
+      return fn.bind(e)
     },
   },
 }

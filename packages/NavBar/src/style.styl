@@ -1,0 +1,74 @@
+@import "../../style/fn";
+
+// package: Abc
+// =============================================================================
+
+@import "../../style/fn";
+/* @modifier 角色  @descendent 下级元素  @when 状态 */
+/* 如果使用扩展，就要支持并写 @modifier left,@modifier right{} */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  height: 44px;
+
+  &.line-bottom {
+    // @extend line1px()
+  }
+
+  &.is-fixed {
+    position: fixed;
+    z-index: 10;
+  }
+  &-center {
+    margin: 0 10px;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+  }
+  &-left,
+  &-right {
+    width: 88px;
+    overflow: hidden;
+    // background: #eee;
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &::before {
+      content: '';
+      width: 4px;
+    }
+  }
+  &-right {
+    // justify-content: flex-end;
+    flex-direction: row-reverse;
+  }
+  &-item {
+    width: 42px;
+    // background: #ccc;
+    text-align: center;
+    line-height: 42px;
+    text-decoration: none;
+  }
+  &-title,
+  &-subtitle {
+    textOverflow()
+
+    font-size: inherit;
+    font-weight: normal;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  &-subtitle {
+    margin-top: -2px;
+    font-size: 12px;
+  }
+}
