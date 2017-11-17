@@ -1,5 +1,40 @@
 # 组件设计
 
+一些约定
+
+- full 是否通栏
+- hidden 是否显示
+- title 标题
+- dot 是否小红点
+- size 尺寸大小
+- shape 形状
+- hot 营销样式
+- color 前景色
+- bg 背景色
+- text 文本
+- content 内容(支持 html)
+- duration 延时，单位秒
+- mask 蒙层
+- corner 角落
+- mode 显示类型
+- type 数据内容类型，如 icon，或 alert 等
+- action 用于替换操作 icon 的文案
+- percent 进度百分比
+- thumb 缩略图
+- position 位置 fixed normal
+- arrow right,up,down,empty 箭头
+- justify=start,end,center,between,around 主轴对齐方式
+- align=start,center,end,stretch 交叉轴对齐方式
+- wrap=nowrap,wrap,wrap-reverse是否换行
+- direction=row,row-reverse,column,column-reverse 方向
+- autoPlay
+- onClose 关闭时回调函数
+- onClick 点击回调
+- disabled 禁用
+- checked 选中
+- min/max 最大最小值
+- platform=ios,android 平台属性
+
 ## 结构
 
 组件实现结构如下，支持独立引用组件（只引用单独的组件）

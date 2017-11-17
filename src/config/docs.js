@@ -37,7 +37,7 @@ export const components = [
         path: 'button',
         title: 'button 按钮',
         desc: '',
-        status: 'done',
+        status: 'doing',
       },
       {
         icon: '',
@@ -65,7 +65,7 @@ export const components = [
         path: 'card',
         title: 'card 卡片',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',
@@ -100,7 +100,7 @@ export const components = [
         path: 'lazyload',
         title: 'lazyload 图片懒加载',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',
@@ -204,7 +204,7 @@ export const components = [
         path: 'notice-bar',
         title: 'notice-bar 通告栏',
         desc: '',
-        status: 'done',
+        status: 'doing',
       },
       {
         icon: '',
