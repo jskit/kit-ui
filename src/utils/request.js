@@ -1,7 +1,8 @@
 // 此文件建议跟着项目走，可随时变更修改、扩展定制
 
-require('es6-promise').polyfill()
+// require('es6-promise').polyfill()
 import fetch from 'kit-fetch'
+import { stringify } from 'qs'
 import { Notification } from 'kit-ui'
 
 function checkStatus(response) {
@@ -25,21 +26,47 @@ function checkStatus(response) {
  * @return {object}           An object containing either "data" or "err"
  */
 export default async function request(url, options = {}) {
+  /* eslint no-multi-spaces: 0 */
   const defaultOptions = {
-    credentials: 'include',
+    method: 'GET',   // 使用的HTTP动词，GET, POST, PUT, DELETE, HEAD
+    url: '',         // 请求地址，URL of the request
+    headers: {
+      // Accept: 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    dataType: 'json',
+    // data: '',
+    mode: 'cors',           // 请求的模式，主要用于跨域设置，cors, no-cors, same-origin
+    timeout: 30000,
+    credentials: 'include', // 是否发送Cookie omit, same-origin
+    // redirect // 收到重定向请求之后的操作，follow, error, manual
+    // integrity // 完整性校验
+    // cache: 'default', // 缓存模式(default, reload, no-cache)
   }
   const newOptions = { ...defaultOptions, ...options }
   const method = (newOptions.method || 'GET').toUpperCase()
   // newOptions.method = method
+  // if (method === 'GET') {
+  //   newOptions.headers = {
+  //     // Accept: 'application/json',
+  //     'Content-Type': 'application/json; charset=utf-8',
+  //   }
+  //   newOptions.body = JSON.stringify(newOptions.data)
+  // }
+
   if (method === 'POST' || method === 'PUT') {
     newOptions.headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json; charset=utf-8',
+      // Accept: 'application/json',
+      // 我们的 post 请求，使用的这个，不是 application/json
+      'Content-Type': 'application/x-www-form-urlencoded',
       ...newOptions.headers,
     }
-    newOptions.body = JSON.stringify(newOptions.body)
+    newOptions.body = `${stringify(newOptions.data)}`
+    // newOptions.body = JSON.stringify(newOptions.body)
   }
+
   console.log(newOptions)
+  /* eslint no-return-await: 0 */
   return await fetch(url, newOptions)
     .then(checkStatus)
     .then(response => response.json())

@@ -84,8 +84,12 @@ module.exports = {
         test: /\.svg$/i,
         loader: 'svg-sprite-loader',
         // include: svgDirs,
-        // include: path.resolve('./img/system'),
+        // include: [
+        //   resolve('src/assets/svg'),
+        //   resolve('src/assets/svg'),
+        // ],
         options: {
+          // symbolId: 'icon-[name]',
           runtimeCompat: true,
           // 不要提取成一个外部独立文件使用，这样与按需加载理念冲突
           // extract: true,

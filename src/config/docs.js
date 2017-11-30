@@ -180,10 +180,10 @@ export const components = [
       },
       {
         icon: '',
-        path: 'tabs',
-        title: 'tabs 标签页',
+        path: 'tab',
+        title: 'tab 标签页',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',

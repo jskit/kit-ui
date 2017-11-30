@@ -1,6 +1,6 @@
 // ENV
 
-// import merge from 'lodash/merge'
+const apiEnv = 'beta'
 
 export const ENV = {
   prod: {
@@ -37,18 +37,19 @@ const regDev = /^(m\.dev\.haoshiqi\.net)/i
 const regBeta = /^(m\.beta\.haoshiqi\.net)/i
 const regProd = /^(m\.haoshiqi\.net)/i
 const regLocal = /^(localhost|10\.|127\.|192\.)/i
-const { host = ENV.prod.host, origin = ENV.prod.baseUrl } = window.location
 
 export function createEnv(opts = {}) {
+  const { env = 'prod' } = opts
+  const { host = ENV[env].host, origin = ENV[env].baseUrl } = window.location
   const prodEnv = Object.assign({}, baseEnv, ENV.prod)
   if (host.match(regProd)) {
     return prodEnv
   }
   if (host.match(regDev)) {
-    return Object.assign(prodEnv, ENV.dev)
+    return Object.assign(prodEnv, ENV.dev, ENV[env])
   }
   if (host.match(regBeta)) {
-    return Object.assign(prodEnv, ENV.beta)
+    return Object.assign(prodEnv, ENV.beta, ENV[env])
   }
   if (host.match(regLocal)) {
     return Object.assign(prodEnv, {
@@ -63,4 +64,6 @@ export function createEnv(opts = {}) {
 }
 
 // 默认会有个 api 配置，之后会读取 store
-export default createEnv()
+export default createEnv({
+  env: apiEnv,
+})

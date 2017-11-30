@@ -7,8 +7,10 @@
         "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
       }
     }],
+    "es2015",
     "stage-2"
   ],
+  "comments": false,
   "plugins": [
     // 安装 babel-plugin-import 插件
     // ["import", { "libraryName": "kit-ui", "style": true }],

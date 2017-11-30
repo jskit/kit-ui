@@ -6,6 +6,7 @@ module.exports = function () {
   const excludes = [
     '__tests__',
     '_util',
+    '_mixin',
     'style',
     'Abc',
     'version',

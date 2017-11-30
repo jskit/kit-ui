@@ -1,7 +1,9 @@
 import version from './version'
+import ActionSheet from './ActionSheet'
 import Alert from './Alert'
 import Badge from './Badge'
 import Button from './Button'
+import Card from './Card'
 import Cell from './Cell'
 import Debug from './Debug'
 import Divider from './Divider'
@@ -11,19 +13,26 @@ import Icon from './Icon'
 import Layout from './Layout'
 import Lazyload from './Lazyload'
 import Loading from './Loading'
+import Modal from './Modal'
+import NavBar from './NavBar'
 import Notification from './Notification'
 import Page from './Page'
 import QrCode from './QrCode'
+import Search from './Search'
 import Spin from './Spin'
+import Swiper from './Swiper'
 import Switch from './Switch'
+import Tab from './Tab'
 import Toast from './Toast'
 import XElement from './XElement'
 import XHeader from './XHeader'
 
 const packages = {
+  ActionSheet,
   Alert,
   Badge,
   Button,
+  Card,
   Cell,
   Debug,
   Divider,
@@ -33,11 +42,16 @@ const packages = {
   Layout,
   Lazyload,
   Loading,
+  Modal,
+  NavBar,
   Notification,
   Page,
   QrCode,
+  Search,
   Spin,
+  Swiper,
   Switch,
+  Tab,
   Toast,
   XElement,
   XHeader,
@@ -61,9 +75,11 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
   version,
   install,
+  ActionSheet,
   Alert,
   Badge,
   Button,
+  Card,
   Cell,
   Debug,
   Divider,
@@ -73,11 +89,16 @@ export {
   Layout,
   Lazyload,
   Loading,
+  Modal,
+  NavBar,
   Notification,
   Page,
   QrCode,
+  Search,
   Spin,
+  Swiper,
   Switch,
+  Tab,
   Toast,
   XElement,
   XHeader,

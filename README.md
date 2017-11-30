@@ -2,7 +2,15 @@
 
 custom element with vue2.x
 
-参考： ant-design, elm, iview, youzan, redx-vue
+参考以下程序开发 ant-design, elm, iview, youzan, redx-vue
+
+开发进度太慢，后续模块使用 youzan 先跑起来，后期再细节调整以及定制
+
+以下引入要考虑到计划中
+
+- bem 命名法，使用 suit 规则
+- cssnext
+- css-modules
 
 ## 安装
 
