@@ -12,6 +12,7 @@
  * <Divider>xxx</Divider>
  */
 import PropTypes from 'vue-types'
+
 export default {
   name: 'KitDivider',
 
@@ -25,22 +26,7 @@ export default {
     gap: String,
   },
 
-  computed: {
-    classes() {
-      const {
-        prefixCls,
-        type,
-      } = this.$props
-
-      return {
-        [`${prefixCls}`]: true,
-        [`${prefixCls}-${type}`]: type,
-      }
-    },
-  },
-
   render(h) {
-    const { classes } = this
     const {
       prefixCls,
       content,
@@ -49,8 +35,14 @@ export default {
       gap,
       line,
       size,
+      type,
     } = this.$props
+
     const $content = content || this.$slots.default
+    const wrapCls = {
+      [`${prefixCls}`]: true,
+      [`${prefixCls}-${type}`]: type,
+    }
 
     const lineStyle = {
       transform: `scaleY(${line})`,
@@ -67,7 +59,7 @@ export default {
       rightPad.marginRight = `${pad4}px`
     }
 
-    return (<div class={ classes } >
+    return (<div class={ wrapCls } >
       <div class={ `${prefixCls}-left` } style={ leftPad }></div>
       <div class={ `${prefixCls}-center`} style={{ fontSize: `${size}px`, color: `${color}` }}>{ $content }</div>
       <div class={ `${prefixCls}-right` } style={ rightPad }></div>

@@ -19,7 +19,7 @@
         <p>gap 控制四个位置的间隔距离</p>
         <KitDivider gap="20">gap="20"</KitDivider>
         <KitDivider gap="20,1">gap="20,1"</KitDivider>
-        <KitDivider gap="10,30">gap="10,30"</KitDivider>
+        <KitDivider gap="10,30,50">gap="10,30,50"</KitDivider>
         <KitDivider gap="20,10,5,50">gap="20,10,5,50"</KitDivider>
       </div>
     </div>
@@ -29,6 +29,7 @@
 <script>
 import Page from '../../Page'
 import Divider from '../../Divider'
+
 export default {
   components: {
     [Page.name]: Page,
