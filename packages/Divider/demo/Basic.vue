@@ -27,12 +27,10 @@
 </template>
 
 <script>
-import Page from '../../Page'
 import Divider from '../../Divider'
 
 export default {
   components: {
-    [Page.name]: Page,
     [Divider.name]: Divider,
   },
   data() {

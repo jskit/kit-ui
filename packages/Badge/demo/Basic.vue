@@ -86,6 +86,7 @@
 import Badge from '../../Badge'
 import Cell from '../../Cell'
 import Switch from '../../Switch'
+
 export default {
   components: {
     [Badge.name]: Badge,
