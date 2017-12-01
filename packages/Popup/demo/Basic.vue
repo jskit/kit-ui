@@ -1,18 +1,30 @@
 <template>
   <Page class="page-abc">
-    <div>new demo</div>
+    <div>
+      <KitPopup v-model="show">内容</KitPopup>
+    </div>
+    <div>
+      <KitPopup
+        v-model="show"
+        position="top"
+        :overlay="false"
+      >
+        内容
+      </KitPopup>
+    </div>
   </Page>
 </template>
 
 <script>
-// import Abc from '../../Abc'
+import Popup from '../../Popup'
 
 export default {
   components: {
-    // [Abc.name]: Abc,
+    [Popup.name]: Popup,
   },
   data() {
     return {
+      show: false,
     }
   },
   computed: {},

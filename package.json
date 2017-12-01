@@ -4,10 +4,10 @@
   "description": "custom element with vue2.x",
   "main": "./lib/index.js",
   "scripts": {
-    "prepublishOnly": "npm run build:kitui",
+    "prepublishOnly": "npm run kitui",
     "build:file": "node build/bin/build-entry.js",
-    "build:kitui": "npm run build:file && npm run build:packages",
     "build:packages": "./node_modules/.bin/webpack --config ./packages/webpack.packages.js",
+    "kitui": "npm run build:file && npm run build:packages",
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",

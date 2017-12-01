@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles"></div>
+  <div></div>
 </template>
 
 <script>
@@ -17,7 +17,7 @@
 import PropTypes from 'vue-types'
 
 export default {
-  name: 'KitSearch',
+  name: 'KitNoticeBar',
 
   props: {
     prefixCls: PropTypes.string.def('kit-'),
@@ -63,7 +63,7 @@ export default {
         shape,
         block,
         hollow,
-        disabled,
+        // disabled,
       } = this.$props
 
       return {
@@ -73,33 +73,33 @@ export default {
         [`is-${shape}`]: shape,
         'is-hollow': hollow,
         'is-block': block,
-        'disabled': disabled,
+        // 'disabled': disabled,
       }
     },
-    styles() {
-      const {
-        size,
-        color,
-        bg,
-      } = this.$props
-      var sizeStyle = {}
-      if (size) {
-        // var size = '280, 70'
-        // var size = '280 70'
-        // console.log(size.split(/\s*,\s*| +/))
-        const [width, height = width] = size.split(/\s*,\s*| +/)
-        sizeStyle = {
-          width: width, // svg 不需要单位
-          height: height,
-        }
-      }
-      return {
-        // fontSize: `${size}px`,
-        backgroundColor: !!bg,
-        color: !!color,
-        ...sizeStyle,
-      }
-    },
+    // styles() {
+    //   const {
+    //     size,
+    //     color,
+    //     bg,
+    //   } = this.$props
+    //   var sizeStyle = {}
+    //   if (size) {
+    //     // var size = '280, 70'
+    //     // var size = '280 70'
+    //     // console.log(size.split(/\s*,\s*| +/))
+    //     const [width, height = width] = size.split(/\s*,\s*| +/)
+    //     sizeStyle = {
+    //       width: width, // svg 不需要单位
+    //       height: height,
+    //     }
+    //   }
+    //   return {
+    //     // fontSize: `${size}px`,
+    //     backgroundColor: !!bg,
+    //     color: !!color,
+    //     ...sizeStyle,
+    //   }
+    // },
   },
 }
 </script>

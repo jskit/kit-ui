@@ -17,6 +17,7 @@ import Modal from './Modal'
 import NavBar from './NavBar'
 import Notification from './Notification'
 import Page from './Page'
+import Popup from './Popup'
 import QrCode from './QrCode'
 import Search from './Search'
 import Spin from './Spin'
@@ -46,6 +47,7 @@ const packages = {
   NavBar,
   Notification,
   Page,
+  Popup,
   QrCode,
   Search,
   Spin,
@@ -93,6 +95,7 @@ export {
   NavBar,
   Notification,
   Page,
+  Popup,
   QrCode,
   Search,
   Spin,
