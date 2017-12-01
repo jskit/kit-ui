@@ -68,6 +68,7 @@
 <script>
 import Cell from '../../Cell'
 import Badge from '../../Badge'
+
 export default {
 
   components: {
@@ -77,7 +78,7 @@ export default {
 
   methods: {
     goBack() {
-      history.go(-1)
+      window.history.go(-1)
     },
   },
 }
