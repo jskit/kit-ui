@@ -42,6 +42,7 @@ import Page from '../../Page'
 import Group from '../../Group'
 import Icon from '../../Icon'
 import { systemIcons, customIcons } from './data'
+
 export default {
   components: {
     [Page.name]: Page,
@@ -52,7 +53,7 @@ export default {
     return {
       fontIcons: systemIcons,
       svgIcons: systemIcons,
-      customIcons: customIcons,
+      customIcons,
     }
   },
 }

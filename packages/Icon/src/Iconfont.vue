@@ -20,6 +20,7 @@
  * <Iconfont type="string" color="red" />
 **/
 import PropTypes from 'vue-types'
+
 export default {
   name: 'Iconfont',
 

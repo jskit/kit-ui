@@ -15,6 +15,7 @@ import Lazyload from './Lazyload'
 import Loading from './Loading'
 import Modal from './Modal'
 import NavBar from './NavBar'
+import NoticeBar from './NoticeBar'
 import Notification from './Notification'
 import Page from './Page'
 import Popup from './Popup'
@@ -45,6 +46,7 @@ const packages = {
   Loading,
   Modal,
   NavBar,
+  NoticeBar,
   Notification,
   Page,
   Popup,
@@ -93,6 +95,7 @@ export {
   Loading,
   Modal,
   NavBar,
+  NoticeBar,
   Notification,
   Page,
   Popup,

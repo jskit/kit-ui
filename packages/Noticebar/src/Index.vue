@@ -15,91 +15,87 @@
  * <Abc>xxx</Abc>
  */
 import PropTypes from 'vue-types'
+// import Marquee, { IMarqueeProps } from './Marquee'
 
 export default {
   name: 'KitNoticeBar',
 
   props: {
-    prefixCls: PropTypes.string.def('kit-'),
-    text: PropTypes.oneOfType([
-      String,
-      Number,
-    ]),
-    name: PropTypes.string.isRequired,
-    age: PropTypes.integer, // 整数
-    obj: PropTypes.object,
-    navItem: PropTypes.shape({
-      id: PropTypes.integer.isRequired,
-      icon: String,
-      title: String,
-    }),
-    max: PropTypes.number.def(99),
-    show: PropTypes.bool,
-    dot: Boolean,
-    hidden: Boolean,
-    color: String,
-    textColor: String,
-    size: PropTypes.oneOf([
-      'xs',
-      'sm',
-      'md',
-      'lg',
-      'xl',
-    ]),
-    shape: PropTypes.oneOf([
-      'dot',
-      'circle',
-      'radius',
-      'square',
-    ]).def('circle'),
+    prefixCls: PropTypes.string.def('kit-notice-bar'),
+    mode: PropTypes.string,
+    icon: PropTypes.string,
+    onClick: PropTypes.func,
   },
 
-  computed: {
-    classes() {
-      const {
-        prefixCls,
-        type,
-        size,
-        shape,
-        block,
-        hollow,
-        // disabled,
-      } = this.$props
+  data() {
+    return {
+      show: true,
+    }
+  },
 
-      return {
-        [`${prefixCls}`]: true,
-        [`${prefixCls}-${type}`]: type,
-        [`${prefixCls}-${size}`]: size,
-        [`is-${shape}`]: shape,
-        'is-hollow': hollow,
-        'is-block': block,
-        // 'disabled': disabled,
+  methods: {
+    handleClick() {
+      const { mode, onClick } = this.$props
+      if (onClick) {
+        onClick()
+      }
+      if (mode === 'closable') {
+        this.show = false
       }
     },
-    // styles() {
-    //   const {
-    //     size,
-    //     color,
-    //     bg,
-    //   } = this.$props
-    //   var sizeStyle = {}
-    //   if (size) {
-    //     // var size = '280, 70'
-    //     // var size = '280 70'
-    //     // console.log(size.split(/\s*,\s*| +/))
-    //     const [width, height = width] = size.split(/\s*,\s*| +/)
-    //     sizeStyle = {
-    //       width: width, // svg 不需要单位
-    //       height: height,
-    //     }
-    //   }
-    //   return {
-    //     // fontSize: `${size}px`,
-    //     backgroundColor: !!bg,
-    //     color: !!color,
-    //     ...sizeStyle,
-    //   }
-    // },
+  },
+
+  render(h) {
+    const {
+      mode,
+      icon,
+      children,
+      prefixCls,
+      action,
+      // marqueeProps,
+      // ...restProps
+    } = this.$props
+
+    const { handleClick } = this;
+
+    console.log(children)
+
+    const extraProps = {}
+    let operationDom = null
+
+    if (mode === 'closable') {
+      operationDom = (
+        <div class={ `${prefixCls}-operation` } onClick={handleClick} role='button' aria-label='close'>
+          { action || <Icon type='cross' size='md' /> }
+        </div>
+
+      )
+    } else {
+      if (mode === 'link') {
+        operationDom = (
+          <div class={ `${prefixCls}-operation` } role='button' aria-label='go to detail'>
+            { action || <Icon type='right' size='md' /> }
+          </div>
+        )
+      }
+      extraProps.onClick = handleClick
+    }
+
+    const wrapCls = {
+      [`${prefixCls}-container`]: true,
+    }
+
+    // <KitMarquee prefixCls={prefixCls} text={children} {...marqueeProps} />
+    return this.show ? (
+      <transition name={ `${prefixCls}-fade` }>
+        <div class={wrapCls} {...extraProps} role='alert'>
+          {icon && <div class={`${prefixCls}-icon`} aria-hidden='true'>{icon}</div>}
+          <div class={`${prefixCls}-content`} slot="slot">
+          </div>
+          {operationDom}
+        </div>
+      </transition>
+    ) : null
   },
 }
 </script>

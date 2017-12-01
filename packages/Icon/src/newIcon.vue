@@ -19,6 +19,7 @@
  * <Icon mode="custom" type="String" />
  */
 import PropTypes from 'vue-types'
+
 export default {
   name: 'KitIcon',
 
@@ -105,18 +106,18 @@ export default {
     // 目前单位用 px
     svgStyles() {
       const { size, fill } = this.$props
-      var sizeStyle = {}
+      let sizeStyle = {}
       if (size) {
         // var size = '280, 70'
         // console.log(size.split(/\s*,\s*| +/))
         const [width, height = width] = size.split(/\s*,\s*| +/)
         sizeStyle = {
-          width: width, // svg 不需要单位
-          height: height,
+          width, // svg 不需要单位
+          height,
         }
       }
       return {
-        fill: fill,
+        fill,
         ...sizeStyle,
       }
     },

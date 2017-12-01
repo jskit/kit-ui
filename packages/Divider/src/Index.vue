@@ -12,6 +12,7 @@
  * <Divider>xxx</Divider>
  */
 import PropTypes from 'vue-types'
+
 export default {
   name: 'KitDivider',
 

@@ -44,7 +44,9 @@ const typeMaps = {
   warning: 'warning-circle',
   error: 'cross-circle',
 }
-const types = Object.keys(typeMaps)
+// const types = Object.keys(typeMaps)
+
+/* eslint max-len: 0 */
 // var closeIcon = {
 //   template: '<a @click="handleClose($event)" :class="`${prefixCls}-close-icon`"><slot></slot></a>',
 //   props: ['prefixCls', 'handleClose'],
@@ -125,8 +127,8 @@ export default {
       e.preventDefault()
       const dom = this.$el
       dom.style.height = `${dom.offsetHeight}px`
-      this.closing = false
-      ;(this.onClose || noop)(e, this)
+      this.closing = false;
+      (this.onClose || noop)(e, this)
     },
   },
 

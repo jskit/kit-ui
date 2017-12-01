@@ -16,6 +16,7 @@
  * <Icon mode="custom" type="String" />
  */
 import PropTypes from 'vue-types'
+
 export default {
   name: 'Icon',
 
