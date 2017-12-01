@@ -8,6 +8,7 @@ import router from './router'
 import KitDoc from 'kit-doc'
 import {
   Page,
+  Group,
 } from '../packages'
 // import KitUI, { Lazyload } from '../packages'
 // import configLazyload from './config/lazyload'
@@ -15,6 +16,7 @@ import {
 
 Vue.use(KitDoc)
 Vue.component(Page.name, Page)
+Vue.component(Group.name, Group)
 // Vue.use(Lazyload, {
 //   ...configLazyload,
 // })
