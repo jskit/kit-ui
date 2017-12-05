@@ -13,7 +13,6 @@ import Icon from './Icon'
 import Layout from './Layout'
 import Lazyload from './Lazyload'
 import Loading from './Loading'
-import Modal from './Modal'
 import NavBar from './NavBar'
 import NoticeBar from './NoticeBar'
 import Notification from './Notification'
@@ -25,6 +24,7 @@ import Spin from './Spin'
 import Swiper from './Swiper'
 import Switch from './Switch'
 import Tab from './Tab'
+import TabBar from './TabBar'
 import Toast from './Toast'
 import XElement from './XElement'
 import XHeader from './XHeader'
@@ -44,7 +44,6 @@ const packages = {
   Layout,
   Lazyload,
   Loading,
-  Modal,
   NavBar,
   NoticeBar,
   Notification,
@@ -56,6 +55,7 @@ const packages = {
   Swiper,
   Switch,
   Tab,
+  TabBar,
   Toast,
   XElement,
   XHeader,
@@ -93,7 +93,6 @@ export {
   Layout,
   Lazyload,
   Loading,
-  Modal,
   NavBar,
   NoticeBar,
   Notification,
@@ -105,6 +104,7 @@ export {
   Swiper,
   Switch,
   Tab,
+  TabBar,
   Toast,
   XElement,
   XHeader,

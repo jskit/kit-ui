@@ -183,7 +183,7 @@ export const components = [
         path: 'tab-bar',
         title: 'TabBar 标签栏',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',
