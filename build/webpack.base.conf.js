@@ -59,7 +59,6 @@ module.exports = {
           resolve('src'),
           resolve('test'),
           resolve('packages'),
-          resolve('node_modules/kit-doc'),
         ],
       },
       {

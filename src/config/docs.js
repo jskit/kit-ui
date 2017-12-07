@@ -221,17 +221,17 @@ export const components = [
       },
       {
         icon: '',
-        path: 'input-item',
-        title: 'InputField 表单输入',
+        path: 'input',
+        title: 'input 表单输入',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',
-        path: 'textarea-item',
-        title: 'TextareaItem 多行输入',
+        path: 'textarea',
+        title: 'textarea 多行输入',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',

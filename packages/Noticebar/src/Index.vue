@@ -1,6 +1,3 @@
-<template>
-  <div></div>
-</template>
 
 <script>
 /**
@@ -49,7 +46,7 @@ export default {
     const {
       mode,
       icon,
-      children,
+      // children,
       prefixCls,
       action,
       // marqueeProps,
@@ -58,7 +55,7 @@ export default {
 
     const { handleClick } = this;
 
-    console.log(children)
+    // console.log(children)
 
     const extraProps = {}
     let operationDom = null
@@ -88,9 +85,10 @@ export default {
     // <KitMarquee prefixCls={prefixCls} text={children} {...marqueeProps} />
     return this.show ? (
       <transition name={ `${prefixCls}-fade` }>
-        <div class={wrapCls} {...extraProps} role='alert'>
+        <div class={wrapCls} role='alert'>
           {icon && <div class={`${prefixCls}-icon`} aria-hidden='true'>{icon}</div>}
-          <div class={`${prefixCls}-content`} slot="slot">
+          <div class={`${prefixCls}-content`}>
+            { this.$slots.default }
           </div>
           {operationDom}
         </div>
