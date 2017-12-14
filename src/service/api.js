@@ -1,7 +1,7 @@
 import { stringify } from 'qs'
 import _request from '../utils/request'
 import env from '../config/env'
-import { version } from 'package.json'
+// import { version } from '../package.json'
 
 const proxyUrl = __DEV__ ? '/proxy' : ''
 const apiBaseUrl = __DEV__ ? proxyUrl : `${env.apiBaseUrl}${proxyUrl}`
@@ -22,6 +22,7 @@ function request(url, options) {
  */
 
 const modelApis = {
+  getAlipay: '/campaign/lotteryWithLogonInfo.json',
   getPointIndex: '/point/index',
   getPointList: '/point/skulist',
   getPointDetail: '/point/iteminfo',
@@ -55,14 +56,6 @@ const modelApis = {
   getDelivery: '/order/deliverymessage',
 }
 
-export function getPointIndex(params) {
-  return request(`/point/index?${stringify(params)}`)
-}
-
-export function queryActivities() {
-  return request('/activities')
-}
-
 const commonParams = {
   uuid: '', // 用户唯一标志
   udid: '', // 设备唯一标志
@@ -73,7 +66,7 @@ const commonParams = {
   timestamp: '', // 时间
   channel: '', // 渠道
   spm: '',
-  v: version, // 系统版本
+  // v: version, // 系统版本
   terminal: 'wap', // 终端
   swidth: '', // 屏幕宽度
   sheight: '', // 屏幕高度
@@ -113,7 +106,8 @@ export function setCommonParams(params) {
 }
 
 export function getCommonParams() {
-  return { ...commonParams }
+  return { }
+  // return { ...commonParams }
 }
 
 models.getCommonParams = getCommonParams

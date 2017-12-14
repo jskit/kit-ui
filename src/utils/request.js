@@ -3,16 +3,16 @@
 // require('es6-promise').polyfill()
 import fetch from 'kit-fetch'
 import { stringify } from 'qs'
-import { Notification } from 'kit-ui'
+// import { Notification } from 'kit-ui'
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response
   }
-  Notification.error({
-    message: `请求错误 ${response.status}: ${response.url}`,
-    description: response.statusText,
-  })
+  // Notification.error({
+  //   message: `请求错误 ${response.status}: ${response.url}`,
+  //   description: response.statusText,
+  // })
   const error = new Error(response.statusText)
   error.response = response
   throw error
@@ -32,7 +32,8 @@ export default async function request(url, options = {}) {
     url: '',         // 请求地址，URL of the request
     headers: {
       // Accept: 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded',
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/javascript;charset=GBK',
     },
     dataType: 'json',
     // data: '',
@@ -71,18 +72,18 @@ export default async function request(url, options = {}) {
     .then(checkStatus)
     .then(response => response.json())
     .catch((error) => {
-      if (error.code) {
-        Notification.error({
-          message: error.name,
-          description: error.message,
-        })
-      }
-      if ('stack' in error && 'message' in error) {
-        Notification.error({
-          message: `请求错误: ${url}`,
-          description: error.message,
-        })
-      }
+      // if (error.code) {
+      //   Notification.error({
+      //     message: error.name,
+      //     description: error.message,
+      //   })
+      // }
+      // if ('stack' in error && 'message' in error) {
+      //   Notification.error({
+      //     message: `请求错误: ${url}`,
+      //     description: error.message,
+      //   })
+      // }
       return error
     })
 }
@@ -91,13 +92,15 @@ export default async function request(url, options = {}) {
 https://github.github.io/fetch/
 
 Request
-@param {String} String | Object - The URL to request, either a String or a Object that return by url.parse
+@param {String} String | Object - The URL to request,
+        either a String or a Object that return by url.parse
 @param {Object} data 数据
 @param {Object} options 选项
   - method {String} - Request method, defaults: 'GET'. [GET, POST, DELETE or PUT]
   - body (String, body types) - HTTP request body(可由 data 转换过来)
   - headers (Object, Headers) - Default: {}
-  - data {String | Buffer | Readable} - 发送到服务器的数据；如果是get请求，它会自动被作为参数拼接到url上。非String对象将通过 $.param 得到序列化字符串。
+  - data {String | Buffer | Readable} - 发送到服务器的数据；
+        如果是get请求，它会自动被作为参数拼接到url上。非String对象将通过 $.param 得到序列化字符串。
   - contentType {String} 发送信息至服务器时内容编码类型。通过设置 false 跳过设置默认值。
       默认：URLSearchParams 'application/x-www-form-urlencoded;charset=utf-8'
       可选：String 'text/plain;charset=utf-8'

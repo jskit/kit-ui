@@ -81,7 +81,8 @@ module.exports = {
       // 如果把 cookie 设置为HttpOnly，则可能无法通过代理传递 cookie
       // proxy all requests starting with /api to jsonplaceholder
       '/proxy': {
-        target: 'https://m.api.haoshiqi.net',
+        // target: 'https://m.api.haoshiqi.net',
+        target: 'https://promoprod.alipay.com',
         changeOrigin: true,
         // true/false, if you want to verify the SSL Certs
         // secure: false,
@@ -89,20 +90,28 @@ module.exports = {
           '^/proxy': '',
         },
         logLevel: 'debug',
-        onProxyReq: function relayRequestHeaders(proxyReq, req) {
-          // console.log(proxyReq.headers)
-          if (cookie) {
-            proxyReq.setHeader('cookie', cookie)
-          }
-          // proxyReq.setHeader('Access-Control-Allow-Credentials', 'true')
+        proxyReqOptDecorator: function(proxyReqOpts, srcReq) {
+          // you can update headers
+          // proxyReqOpts.headers['Content-Type'] = 'text/html';
+          // you can change the method
+          // proxyReqOpts.method = 'GET';
+          // proxyReqOpts.headers['Access-Control-Allow-Origin'] = 'true';
+          return proxyReqOpts;
         },
-        onProxyRes: function relayResponseHeaders(proxyRes, req, res) {
-          // console.log(proxyRes.headers)
-          var proxyCookie = proxyRes.headers['set-cookie']
-          if (proxyCookie) {
-            cookie = proxyCookie
-          }
-        },
+        // onProxyReq: function relayRequestHeaders(proxyReq, req) {
+        //   // console.log(proxyReq.headers)
+        //   if (cookie) {
+        //     proxyReq.setHeader('cookie', cookie)
+        //   }
+        //   // proxyReq.setHeader('Access-Control-Allow-Credentials', 'true')
+        // },
+        // onProxyRes: function relayResponseHeaders(proxyRes, req, res) {
+        //   // console.log(proxyRes.headers)
+        //   var proxyCookie = proxyRes.headers['set-cookie']
+        //   if (proxyCookie) {
+        //     cookie = proxyCookie
+        //   }
+        // },
       },
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
