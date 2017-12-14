@@ -125,13 +125,6 @@ export const components = [
       },
       {
         icon: '',
-        path: 'popup',
-        title: 'popup 弹出层',
-        desc: '从顶部或底部浮出的模态，提供标题和关闭按钮，展示和当前内容相关的信息或提供相关操作。',
-        status: 'todo',
-      },
-      {
-        icon: '',
         path: 'stepper',
         title: 'stepper 步进器',
         desc: '',
@@ -190,7 +183,7 @@ export const components = [
         path: 'tab-bar',
         title: 'TabBar 标签栏',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',
@@ -203,7 +196,7 @@ export const components = [
         icon: '',
         path: 'notice-bar',
         title: 'notice-bar 通告栏',
-        desc: '',
+        desc: '在导航栏下方，一般用作系统提醒、活动提醒等通知。',
         status: 'doing',
       },
       {
@@ -228,17 +221,17 @@ export const components = [
       },
       {
         icon: '',
-        path: 'input-item',
-        title: 'InputField 表单输入',
+        path: 'input',
+        title: 'input 表单输入',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',
-        path: 'textarea-item',
-        title: 'TextareaItem 多行输入',
+        path: 'textarea',
+        title: 'textarea 多行输入',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',
@@ -339,10 +332,17 @@ export const components = [
       },
       {
         icon: '',
+        path: 'popup',
+        title: 'popup 弹出层',
+        desc: '从顶部或底部浮出的模态，提供标题和关闭按钮，展示和当前内容相关的信息或提供相关操作。',
+        status: 'doing',
+      },
+      {
+        icon: '',
         path: 'modal',
         title: 'Modal 对话框',
         desc: '用作显示系统的重要信息，并请求用户进行操作反馈，eg：删除某个重要内容时，弹出 Modal 进行二次确认。',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',
@@ -356,7 +356,7 @@ export const components = [
         path: 'action-sheet',
         title: 'ActionSheet 操作表/动作面板',
         desc: '从底部浮出的模态，提供和当前场景相关的 2 个以上操作或者更多描述内容。',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',
@@ -365,6 +365,7 @@ export const components = [
         desc: '警告提示，展现需要关注的信息。',
         status: 'done',
       },
+
       // {
       //   icon: '',
       //   path: 'popover',

@@ -1,4 +1,3 @@
-import default from "./XElement/index";
 
 /*
 使用 webpack 的 require.context 实现“去中心化”管理

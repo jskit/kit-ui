@@ -1,37 +1,23 @@
+import PropTypes from 'vue-types'
 import PopupManager from './popup-manager'
 import PopupContext from './popup-context'
 
 export default {
   props: {
     // popup当前显示状态
-    value: {
-      type: Boolean,
-      default: false,
-    },
+    value: Boolean,
     // 是否显示遮罩层
-    overlay: {
-      type: Boolean,
-      default: false,
-    },
+    overlay: Boolean,
     /**
      * 点击遮罩层是否关闭popup
      */
-    closeOnClickOverlay: {
-      type: Boolean,
-      default: false,
-    },
+    closeOnClickOverlay: Boolean,
     zIndex: [String, Number],
     // popup滚动时是否body内容也滚动
     // 默认为不滚动
-    lockOnScroll: {
-      type: Boolean,
-      default: true,
-    },
+    lockOnScroll: PropTypes.bool,
     // 防止滚动穿透
-    preventScroll: {
-      type: Boolean,
-      default: false,
-    },
+    preventScroll: Boolean,
   },
 
   watch: {
@@ -47,6 +33,7 @@ export default {
   },
 
   beforeMount() {
+    /* eslint no-underscore-dangle: 0 */
     this._popupId = 'popup-' + PopupContext.plusKeyByOne('idSeed')
     PopupManager.register(this._popupId, this)
   },
@@ -72,14 +59,16 @@ export default {
       }
     },
     watchTouchMove(e) {
-      const pos = this.pos
+      const { pos } = this
       const dx = e.touches[0].clientX - pos.x
       const dy = e.touches[0].clientY - pos.y
       const direction = dy > 0 ? '10' : '01'
       const el = this.$el.querySelector('.scroller') || this.$el
-      const scrollTop = el.scrollTop
-      const scrollHeight = el.scrollHeight
-      const offsetHeight = el.offsetHeight
+      const {
+        scrollTop,
+        scrollHeight,
+        offsetHeight,
+      } = el
       const isVertical = Math.abs(dx) < Math.abs(dy)
 
       let status = '11'
@@ -107,7 +96,7 @@ export default {
 
       this.$emit('input', true)
 
-      const zIndex = this.zIndex
+      const { zIndex } = this
 
       // 如果属性中传入了`zIndex`，则覆盖`popupContext`中对应的`zIndex`
       if (zIndex) {

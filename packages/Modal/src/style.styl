@@ -1,5 +1,73 @@
 @import "../../style/fn";
 
-// package: Abc
+// package: Modal
 // =============================================================================
 
+.kit-modal {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 3000;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(39, 39, 39, .7);;
+  }
+
+  &__container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  &__padtop {
+    padding-top: 20px;
+  }
+
+  &__title {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid $color-gray;
+  }
+
+  &__icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &__content {
+    padding: 15px;
+  }
+
+  &__btnbox {
+    display: flex;
+    border: 1px solid $color-gray;
+
+    .btnleft,.btnright{
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 0px;
+      cursor: pointer;
+    }
+    .btnleft{
+      border-right: 1px solid $color-gray;
+    }
+  }
+
+}

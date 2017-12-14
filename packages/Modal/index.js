@@ -1,4 +1,4 @@
 
-import vElement from './src'
+import Modal from './src/Modal'
 
-export default vElement
+export default Modal

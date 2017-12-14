@@ -1,15 +1,15 @@
 <template>
   <Page class="page-abc">
-    <KitAbc>Abc</KitAbc>
+    <div>new demo</div>
   </Page>
 </template>
 
 <script>
-import Abc from '../../Abc'
+// import Abc from '../../Abc'
 
 export default {
   components: {
-    [Abc.name]: Abc,
+    // [Abc.name]: Abc,
   },
   data() {
     return {

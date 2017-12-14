@@ -17,6 +17,7 @@
  * <Spin tip="Loading...">slot...</Spin>
  */
 import PropTypes from 'vue-types'
+
 export default {
   name: 'KitSpin',
   props: {

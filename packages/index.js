@@ -13,17 +13,22 @@ import Icon from './Icon'
 import Layout from './Layout'
 import Lazyload from './Lazyload'
 import Loading from './Loading'
-import Modal from './Modal'
 import NavBar from './NavBar'
+import NoticeBar from './NoticeBar'
 import Notification from './Notification'
 import Page from './Page'
+import Popup from './Popup'
 import QrCode from './QrCode'
 import Search from './Search'
 import Spin from './Spin'
 import Swiper from './Swiper'
 import Switch from './Switch'
 import Tab from './Tab'
+<<<<<<< HEAD
 import Tag from './Tag'
+=======
+import TabBar from './TabBar'
+>>>>>>> 32ffb22bef76c9116350ef42765c8a6386df3173
 import Toast from './Toast'
 import XElement from './XElement'
 import XHeader from './XHeader'
@@ -43,10 +48,11 @@ const packages = {
   Layout,
   Lazyload,
   Loading,
-  Modal,
   NavBar,
+  NoticeBar,
   Notification,
   Page,
+  Popup,
   QrCode,
   Search,
   Spin,
@@ -54,6 +60,7 @@ const packages = {
   Switch,
   Tab,
   Tag,
+  TabBar,
   Toast,
   XElement,
   XHeader,
@@ -91,10 +98,11 @@ export {
   Layout,
   Lazyload,
   Loading,
-  Modal,
   NavBar,
+  NoticeBar,
   Notification,
   Page,
+  Popup,
   QrCode,
   Search,
   Spin,
@@ -102,6 +110,7 @@ export {
   Switch,
   Tab,
   Tag,
+  TabBar,
   Toast,
   XElement,
   XHeader,

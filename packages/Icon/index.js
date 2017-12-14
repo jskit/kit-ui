@@ -1,6 +1,6 @@
 
 // import Icon from './src/Icon'
-import Icon from './src/newIcon'
+import Icon from './src/Icon'
 // import IconFont from './src/IconFont'
 // import IconSvg from './src/IconSvg'
 // import IconCustom from './src/IconCustom'

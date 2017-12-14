@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="styles"></div>
+  <div></div>
 </template>
 
 <script>
@@ -63,7 +63,7 @@ export default {
         shape,
         block,
         hollow,
-        disabled,
+        // disabled,
       } = this.$props
 
       return {
@@ -73,34 +73,56 @@ export default {
         [`is-${shape}`]: shape,
         'is-hollow': hollow,
         'is-block': block,
-        'disabled': disabled,
+        // 'disabled': disabled,
       }
     },
-    styles() {
-      const {
-        size,
-        color,
-        bg,
-      } = this.$props
-      var sizeStyle = {}
-      if (size) {
-        // var size = '280, 70'
-        // var size = '280 70'
-        // console.log(size.split(/\s*,\s*| +/))
-        const [width, height = width] = size.split(/\s*,\s*| +/)
-        sizeStyle = {
-          width: width, // svg 不需要单位
-          height: height,
-        }
-      }
-      return {
-        // fontSize: `${size}px`,
-        backgroundColor: !!bg,
-        color: !!color,
-        ...sizeStyle,
-      }
-    },
+    // styles() {
+    //   const {
+    //     size,
+    //     color,
+    //     bg,
+    //   } = this.$props
+    //   var sizeStyle = {}
+    //   if (size) {
+    //     // var size = '280, 70'
+    //     // var size = '280 70'
+    //     // console.log(size.split(/\s*,\s*| +/))
+    //     const [width, height = width] = size.split(/\s*,\s*| +/)
+    //     sizeStyle = {
+    //       width: width, // svg 不需要单位
+    //       height: height,
+    //     }
+    //   }
+    //   return {
+    //     // fontSize: `${size}px`,
+    //     backgroundColor: !!bg,
+    //     color: !!color,
+    //     ...sizeStyle,
+    //   }
+    // },
   },
+
+  // render(h) {
+  //   return (
+  //     <div
+  //       // normal attributes or component props.
+  //       id="foo"
+  //       // DOM properties are prefixed with `domProps`
+  //       domPropsInnerHTML="bar"
+  //       // event listeners are prefixed with `on` or `nativeOn`
+  //       onClick={this.clickHandler}
+  //       nativeOnClick={this.nativeClickHandler}
+  //       // other special top-level properties
+  //       class={{ foo: true, bar: false }}
+  //       style={{ color: 'red', fontSize: '14px' }}
+  //       key="key"
+  //       ref="ref"
+  //       // assign the `ref` is used on elements/components with v-for
+  //       refInFor
+  //       slot="slot">
+  //     </div>
+  //   )
+  // },
 }
 </script>
 

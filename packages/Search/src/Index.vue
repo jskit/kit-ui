@@ -17,7 +17,7 @@
 import PropTypes from 'vue-types'
 
 export default {
-  name: 'KitAbc',
+  name: 'KitSearch',
 
   props: {
     prefixCls: PropTypes.string.def('kit-'),
