@@ -58,7 +58,7 @@ export const components = [
         path: 'tag',
         title: 'tag 标签',
         desc: '',
-        status: 'todo',
+        status: 'doing',
       },
       {
         icon: '',

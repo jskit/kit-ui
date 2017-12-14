@@ -1,0 +1,71 @@
+.kit-tag{
+  display: inline-block;
+  line-height: 22px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 20px;
+  background: #f3f3f3;
+  margin-right: 4px;
+  margin-bottom: 8px;
+  vertical-align: middle;
+  opacity: 0.85;
+  overflow: hidden;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &,
+  a,
+  a:hover {
+    color: #666;
+  }
+
+  .anticon-cross {
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 3px;
+    color: #666;
+    transition: all 0.3s ease;
+    opacity: 0.66;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-blue,
+  &-green,
+  &-yellow,
+  &-red {
+    &,
+    a,
+    a:hover,
+    .anticon-cross,
+    .anticon-cross:hover {
+      color: #fff;
+    }
+  }
+
+  &-blue {
+    background: #2db7f5;
+  }
+
+  &-green {
+    background: #87d068;
+  }
+
+  &-yellow {
+    background: #fac450;
+  }
+
+  &-red {
+    background: #f60;
+  }
+
+  &-close {
+    width: 0 !important;
+    padding: 0;
+    margin-right: 0;
+  }
+}

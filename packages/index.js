@@ -23,6 +23,7 @@ import Spin from './Spin'
 import Swiper from './Swiper'
 import Switch from './Switch'
 import Tab from './Tab'
+import Tag from './Tag'
 import Toast from './Toast'
 import XElement from './XElement'
 import XHeader from './XHeader'
@@ -52,6 +53,7 @@ const packages = {
   Swiper,
   Switch,
   Tab,
+  Tag,
   Toast,
   XElement,
   XHeader,
@@ -99,6 +101,7 @@ export {
   Swiper,
   Switch,
   Tab,
+  Tag,
   Toast,
   XElement,
   XHeader,
