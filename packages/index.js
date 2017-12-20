@@ -24,11 +24,8 @@ import Spin from './Spin'
 import Swiper from './Swiper'
 import Switch from './Switch'
 import Tab from './Tab'
-<<<<<<< HEAD
 import Tag from './Tag'
-=======
 import TabBar from './TabBar'
->>>>>>> 32ffb22bef76c9116350ef42765c8a6386df3173
 import Toast from './Toast'
 import XElement from './XElement'
 import XHeader from './XHeader'

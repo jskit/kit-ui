@@ -1,2 +1,2 @@
-import Tag from './src/tag'
+import Tag from './src'
 export default Tag
