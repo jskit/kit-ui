@@ -1,4 +1,4 @@
 
-import Spin from './src'
+import vElement from './src'
 
-export default Spin
+export default vElement

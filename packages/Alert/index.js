@@ -1,4 +1,4 @@
 
-import Alert from './src'
+import vElement from './src'
 
-export default Alert
+export default vElement

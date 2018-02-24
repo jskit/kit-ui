@@ -1,4 +1,4 @@
 
-import Page from './src/Page'
+import vElement from './src'
 
-export default Page
+export default vElement
