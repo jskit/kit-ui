@@ -10,9 +10,11 @@ import Divider from './Divider'
 import Flex from './Flex'
 import Group from './Group'
 import Icon from './Icon'
+import Input from './Input'
 import Layout from './Layout'
 import Lazyload from './Lazyload'
 import Loading from './Loading'
+import Modal from './Modal'
 import NavBar from './NavBar'
 import NoticeBar from './NoticeBar'
 import Notification from './Notification'
@@ -25,6 +27,7 @@ import Swiper from './Swiper'
 import Switch from './Switch'
 import Tab from './Tab'
 import TabBar from './TabBar'
+import Textarea from './Textarea'
 import Toast from './Toast'
 import XElement from './XElement'
 import XHeader from './XHeader'
@@ -41,9 +44,11 @@ const packages = {
   Flex,
   Group,
   Icon,
+  Input,
   Layout,
   Lazyload,
   Loading,
+  Modal,
   NavBar,
   NoticeBar,
   Notification,
@@ -56,6 +61,7 @@ const packages = {
   Switch,
   Tab,
   TabBar,
+  Textarea,
   Toast,
   XElement,
   XHeader,
@@ -90,9 +96,11 @@ export {
   Flex,
   Group,
   Icon,
+  Input,
   Layout,
   Lazyload,
   Loading,
+  Modal,
   NavBar,
   NoticeBar,
   Notification,
@@ -105,6 +113,7 @@ export {
   Switch,
   Tab,
   TabBar,
+  Textarea,
   Toast,
   XElement,
   XHeader,

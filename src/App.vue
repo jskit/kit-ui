@@ -1,23 +1,21 @@
 <template>
-  <div id="app">
+  <div id="root">
     <router-view class="page-tpl"></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'root',
 }
 </script>
 
 <style lang="stylus">
 @import './style/index';
 
-.page-tpl {
-  width: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
+body {
+  font-size: 16px;
+  // background-color: #ececec;
 }
 
 </style>

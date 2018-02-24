@@ -1,3 +1,4 @@
+
 function lazyLoad(page) {
   return () => import(/* webpackChunkName: "default" */ `./${page}`)
 }

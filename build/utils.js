@@ -1,10 +1,15 @@
-var path = require('path')
-var config = require('../config')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var isProduction = config.env['__PROD__']
+'use strict'
+
+const path = require('path')
+const glob = require('glob')
+const config = require('../config')
+const HappyPack = require('happypack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+const isProduction = config.env['__PROD__']
 
 exports.assetsPath = function (_path) {
-  var assetsSubDirectory = isProduction
+  const assetsSubDirectory = isProduction
     ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
   return path.posix.join(assetsSubDirectory, _path)
@@ -13,7 +18,7 @@ exports.assetsPath = function (_path) {
 exports.cssLoaders = function (options) {
   options = options || {}
 
-  var cssLoader = {
+  const cssLoader = {
     loader: 'css-loader',
     options: {
       minimize: isProduction,
@@ -21,9 +26,17 @@ exports.cssLoaders = function (options) {
     }
   }
 
+  const postcssLoader = {
+    loader: 'postcss-loader',
+    options: {
+      sourceMap: options.sourceMap
+    }
+  }
+
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    var loaders = [cssLoader]
+    const loaders = [cssLoader]
+
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
@@ -58,15 +71,63 @@ exports.cssLoaders = function (options) {
 }
 
 // Generate loaders for standalone style files (outside of .vue)
+// 生成css-loader的装载机
 exports.styleLoaders = function (options) {
-  var output = []
-  var loaders = exports.cssLoaders(options)
-  for (var extension in loaders) {
-    var loader = loaders[extension]
+  const output = []
+  const loaders = exports.cssLoaders(options)
+
+  for (const extension in loaders) {
+    const loader = loaders[extension]
     output.push({
       test: new RegExp('\\.' + extension + '$'),
       use: loader
     })
   }
+
   return output
 }
+
+// Happypack生成器
+exports.cHappypack = (id, loaders) => {
+  return new HappyPack({
+    id: id,
+    debug: false,
+    verbose: false,
+    threads: 4,
+    loaders: loaders
+  })
+}
+
+// 绝对路径生成器
+exports.resolve = (localPath, dir = '') => {
+  return path.join(process.cwd(), localPath, dir)
+}
+
+// 分离多页
+exports.getEntries = (globPath) => {
+  const entries = {}
+  glob.sync(globPath).forEach((entry) => {
+    // 过滤router.js
+    const basename = path.basename(entry, path.extname(entry), 'router.js')
+    entries[basename] = entry
+  })
+  return entries
+}
+
+// exports.createNotifierCallback = () => {
+//   const notifier = require('node-notifier')
+
+//   return (severity, errors) => {
+//     if (severity !== 'error') return
+
+//     const error = errors[0]
+//     const filename = error.file && error.file.split('!').pop()
+
+//     notifier.notify({
+//       title: packageConfig.name,
+//       message: severity + ': ' + error.name,
+//       subtitle: filename || '',
+//       icon: path.join(__dirname, 'logo.png')
+//     })
+//   }
+// }
