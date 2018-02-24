@@ -1,4 +1,4 @@
 
-import Buttom from './src/Button'
+import vElement from './src'
 
-export default Buttom
+export default vElement

@@ -24,7 +24,7 @@ module.exports = {
   // context: path.resolve(__dirname, "../"),
   entry: {
     // 如需多页面，需要处理 entry
-    app: resolve(config.path.src), // './src/main.js',
+    app: resolve(config.path.src, '/main.js'), // './src/main.js',
   },
   output: {
     path: config.build.assetsRoot,
@@ -37,7 +37,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json', '.css', '.md'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@root': resolve('./'),
+      '@root': resolve(config.path.src, '../'),
       '@': resolve(config.path.src),
       // '@lib': resolve(config.path.assets, 'js/lib.js'),
       'assets': resolve(config.path.assets),
@@ -88,7 +88,7 @@ module.exports = {
         // loader: 'eslint-loader',
         use: ['happypack/loader?id=ESLint'],
         enforce: 'pre',
-        exclude: /(libs|node_modules)/,
+        // exclude: /(libs|node_modules)/,
         include: [
           resolve(config.path.src),
           resolve(config.path.test),
@@ -101,7 +101,7 @@ module.exports = {
         test: /\.js$/,
         // loader: 'babel-loader',
         use: ['happypack/loader?id=Js'],
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         include: [
           resolve(config.path.src),
           resolve(config.path.test),

@@ -1,4 +1,4 @@
 
-import QRcode from './src'
+import vElement from './src'
 
-export default QRcode
+export default vElement

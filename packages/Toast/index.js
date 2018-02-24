@@ -1,4 +1,4 @@
 
-import Toast from './src'
+import vElement from './src'
 
-export default Toast
+export default vElement

@@ -1,4 +1,4 @@
 
-import Badge from './src'
+import vElement from './src'
 
-export default Badge
+export default vElement

@@ -1,4 +1,4 @@
 
-import vDebug from './src/Debug'
+import vElement from './src/Debug'
 
-export default vDebug
+export default vElement
