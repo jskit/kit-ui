@@ -112,7 +112,7 @@ export default {
         [`is-${shape}`]: shape,
         'is-hollow': hollow,
         'is-block': block,
-        'disabled': disabled,
+        disabled,
       }
     },
     // styles () {
