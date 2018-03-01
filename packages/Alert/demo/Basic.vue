@@ -63,6 +63,7 @@
 
 <script>
 import Alert from '../../Alert'
+
 export default {
   components: {
     [Alert.name]: Alert,

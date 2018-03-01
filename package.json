@@ -2,7 +2,7 @@
   "name": "kit-ui",
   "version": "0.3.8",
   "description": "custom element with vue2.x",
-  "main": "./lib/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "prepublishOnly": "npm run kitui",
     "packages": "node build/bin/build-entry.js",
