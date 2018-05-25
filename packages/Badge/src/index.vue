@@ -94,13 +94,13 @@ export default {
       // /* eslint no-self-compare: 0 */
       return (!Number.isNaN(textNum) && text > overflowCount) ? `${overflowCount}+` : text
     },
-    styles () {
+    styles() {
       return [
         this.color ? { backgroundColor: this.color } : {},
         this.textColor ? { color: this.textColor } : {},
       ]
     },
-    classes () {
+    classes() {
       const parent = this.$parent
       const {
         prefixCls,

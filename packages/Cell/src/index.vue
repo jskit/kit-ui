@@ -64,6 +64,7 @@
  * </Cell>
 **/
 import XElement from '../../XElement'
+
 function cleanPath(path) {
   return path.replace(/\/\//g, '/')
 }

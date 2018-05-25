@@ -13,6 +13,7 @@
  * </KitElement>
  */
 import PropTypes from 'vue-types'
+
 export default {
   name: 'KitElement',
   props: {
@@ -24,9 +25,8 @@ export default {
   },
   render(h) {
     const $default = this.$slots.default
-    const data = $default.data
 
-    return h(this.tag, data, this.$slots.default)
+    return h(this.tag, $default.data, this.$slots.default)
   },
 }
 </script>

@@ -27,6 +27,7 @@
  * <KitSwitch v-model="value"></KitSwitch>
  */
 import PropTypes from 'vue-types'
+
 export default {
   name: 'KitSwitch',
 
@@ -75,7 +76,7 @@ export default {
         [`${prefixCls}`]: true,
         [`${prefixCls}-${size}`]: size,
         // 'is-hollow': hollow,
-        'disabled': disabled,
+        disabled,
       }
     },
     styles() {

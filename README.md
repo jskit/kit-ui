@@ -2,6 +2,8 @@
 
 custom element with vue2.x
 
+**NOTE:** 使用 css-modules
+
 参考以下程序开发 ant-design, elm, iview, youzan, redx-vue
 
 开发进度太慢，后续模块使用 youzan 先跑起来，后期再细节调整以及定制
