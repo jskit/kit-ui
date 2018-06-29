@@ -86,7 +86,9 @@ Toast.success = createMethod('success')
 Toast.offline = createMethod('offline')
 Toast.loading = createMethod('loading')
 Toast.hide = () => {
-  instance && instance.clear()
+  if (instance) {
+    instance.clear()
+  }
 }
 
 export default Toast
