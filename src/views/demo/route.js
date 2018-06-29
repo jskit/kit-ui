@@ -54,7 +54,7 @@ export default [{
   children: [
     {
       path: '/',
-      alias: 'component',
+      alias: 'components',
       name: 'demo',
       meta: {
         title: 'Demo 示例',

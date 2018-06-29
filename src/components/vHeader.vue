@@ -6,7 +6,7 @@
     </router-link>
     <router-link to="/">首页</router-link>
     <router-link to="docs">文档</router-link>
-    <router-link to="component">组件</router-link>
+    <router-link to="components">组件</router-link>
     <router-link to="demo">
       <KitButton>预览</KitButton>
     </router-link>

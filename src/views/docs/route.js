@@ -24,7 +24,7 @@ const registerRoute = (list) => {
     // const isPackage = packages.indexOf(path) > -1
     const isPackage = page.status !== 'todo'
     routes.push({
-      name: `component/${page.path}`,
+      name: `components/${page.path}`,
       path: `${page.path}`,
       component: isPackage ? () => import(`@root/packages/${path}/readme.md`) : isComming,
       meta: {
@@ -41,7 +41,7 @@ const registerRoute = (list) => {
 export default [{
   // 使用默认子路由，则父路由的 name 就得去掉
   // 否则使用 `:to="{name: 'demo'"` 会导致默认子路由不会render
-  path: '/component',
+  path: '/components',
   component: tplDocs,
   children: [
     {

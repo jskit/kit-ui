@@ -1,3 +1,4 @@
+import { version } from '@root/package.json'
 
 export const components = [
   {
@@ -608,7 +609,7 @@ export default {
   header: {
     首页: '/',
     文档: '/#/docs',
-    组件: '/#/component',
+    组件: '/#/components',
     小程序: '/#/kit-app',
   },
   footer: {
@@ -618,7 +619,14 @@ export default {
       意见反馈: 'https://github.com/jskit/kit-ui/issues',
     },
   },
-  navBase: '/component',
+  navBase: '/components',
+  logo: {
+    href: '/',
+    title: 'Kit-UI',
+    // image: './assets/img/logo.png',
+    image: 'https://vuejs.org/images/logo.png',
+    version,
+  },
   nav: [
     {
       title: '开发指南',
