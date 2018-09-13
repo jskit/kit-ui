@@ -47,14 +47,29 @@ export default [{
     {
       path: '/',
       redirect: {
-        name: 'quickstart',
+        name: 'intro',
+      },
+    },
+    {
+      path: 'readme',
+      alias: 'docs',
+      component: Index,
+      meta: {
+        title: 'Kit-UI',
+      },
+    },
+    {
+      path: 'intro',
+      name: 'intro',
+      component: lazyLoad('intro.md'),
+      meta: {
+        title: '介绍',
       },
     },
     {
       path: 'quickstart',
       name: 'quickstart',
-      alias: 'docs',
-      component: Index,
+      component: lazyLoad('quickstart.md'),
       meta: {
         title: '快速上手',
       },

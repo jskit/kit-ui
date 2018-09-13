@@ -21,7 +21,7 @@ reqModules.keys().map((key) => {
 const router = new Router({
   mode: 'hash',
   base: '',
-  scrollBehavior: () => ({ y: 0 }),
+  // scrollBehavior: () => ({ y: 0 }),
   routes: [
     ...routes,
     // 处理特殊路由

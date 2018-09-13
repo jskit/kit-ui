@@ -635,6 +635,11 @@ export default {
           title: '',
           list: [
             {
+              path: 'intro',
+              title: '介绍',
+              status: 'doing',
+            },
+            {
               path: 'quickstart',
               title: '快速上手',
               status: 'doing',
