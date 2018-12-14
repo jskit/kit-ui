@@ -1,5 +1,7 @@
 # kit-ui
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jskit/kit-ui.svg)](https://greenkeeper.io/)
+
 custom element with vue2.x
 
 **NOTE:** 使用 css-modules
